@@ -1,0 +1,148 @@
+import React, { Component } from "react";
+import axios from "../../axios/axios";
+import "../QuestionButtons/Responce/button.css";
+import { connect } from "react-redux";
+import {
+  Paper_Created,
+  Paper_is_creating,
+} from "../../store/store/actions/auth";
+import DataFromAndToServer from "./DataFromAndToServer";
+import Spinner from "../Spinner/Spinner";
+import { Link, Redirect } from "react-router-dom";
+import { logout } from "../../store/store/actions/auth";
+class AllQuestions extends Component {
+  state = {
+    PaperCollection: null,
+    tempId: null,
+    Clicked: false,
+  };
+
+  componentDidMount() {
+    this.props.onCreating();
+    let QueryParam = `?orderBy="userId"&equalTo="` + this.props.userId + `"`;
+    axios
+      .get(`/Papers.json` + QueryParam)
+      .then((res) => {
+        this.props.onCreated();
+        this.setState({ PaperCollection: res.data });
+      })
+      .catch((err) => alert(err));
+  }
+  // deside = (data) => {
+  //   this.setState({ tempId: data.res, Clicked: true });
+  // };
+
+  logoutbtn = () => {
+    this.props.logout();
+  };
+
+  render() {
+    let Data = null;
+    if (this.state.PaperCollection != null) {
+      if (Object.keys(this.state.PaperCollection).length === 0) {
+        // alert("You have not created any paper yet 😁😁");
+        Data = (
+          <div style={{ position: "absolute", left: "32vw", top: "28%" }}>
+            You have not created any paper yet 😁😁
+          </div>
+        );
+      } else {
+        let papers = Object.keys(this.state.PaperCollection);
+        Data = papers.map((res, i) => {
+          return (
+            <Link
+              className="buttonCopy"
+              to={{ pathname: `/perticularPaper/${res}` }}
+              key={i}
+            >
+              <span>{res}</span>
+            </Link>
+          );
+        });
+      }
+    }
+
+    let finalData = (
+      <div className="paperContaines">
+        {!this.state.Clicked ? (
+          <div className="container_AllPaper" style={{ marginTop: "43px" }}>
+            {Data}
+          </div>
+        ) : null}
+      </div>
+    );
+
+    if (this.props.loading) finalData = <Spinner />;
+
+    return (
+      <div>
+        <div
+          className="NavBar d-flex justify-content-between align-items-center"
+          style={{ padding: "9px" }}
+        >
+          <div className="Icon_Container nav-item" style={{ left: "0px" }}>
+            <div class={`toggle ${this.state.toggle ? `change` : ``}`}>
+              <div
+                onClick={() => this.setState({ toggle: !this.state.toggle })}
+                style={{ width: "fit-content" }}
+              >
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+              </div>
+            </div>
+            <div>
+              <Link to="/mainPage">
+                {" "}
+                <i class="fa fa-arrow-circle-left"></i>
+              </Link>
+            </div>
+          </div>
+          <div className="nav-item">All Created Papers</div>
+        </div>
+
+        <div
+          className={`dropdown_content ${
+            this.state.toggle ? `dropdown_Show` : ``
+          }`}
+          style={{ top: "6%", zIndex: "9999999999999" }}
+        >
+          <Link style={{ textDecoration: "none" }} to="/createPapers">
+            <strong>Create Paper</strong>
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/allPapers">
+            <strong>All Papers</strong>
+          </Link>
+          <Link style={{ textDecoration: "none" }} to="/allResponces">
+            <strong>All Responces</strong>
+          </Link>
+          <Link
+            style={{ textDecoration: "none" }}
+            onClick={this.logoutbtn}
+            // activeClassName="logout"
+            to="/"
+          >
+            <strong>Logout</strong>
+          </Link>
+        </div>
+        <div>{finalData}</div>
+      </div>
+    );
+  }
+}
+
+const mapDispathchToProps = (dispatch) => {
+  return {
+    onCreating: () => dispatch(Paper_is_creating()),
+    onCreated: () => dispatch(Paper_Created()),
+    logout: () => dispatch(logout()),
+  };
+};
+const mapPropsToState = (state) => {
+  return {
+    loading: state.reducer.loading,
+    userId: state.reducer.userId,
+    idToken: state.reducer.idToken,
+  };
+};
+export default connect(mapPropsToState, mapDispathchToProps)(AllQuestions);

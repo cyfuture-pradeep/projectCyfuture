@@ -1,0 +1,238 @@
+.container {
+  /* width: 100vw; */
+  min-height: 100vh;
+  max-height: fit-content;
+  box-sizing: border-box;
+  font: 400 1em/1.5 "Neuton";
+  background: #090d00;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  margin: 0;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+@media (max-width: 722px) {
+  .container {
+    width: 722px;
+  }
+  body {
+    background-color: white;
+  }
+}
+
+/* ....................................................... */
+
+/* logout */
+
+.logout_btn {
+  font-family: Hack, monospace;
+  background: #d3d3d3;
+  color: #2c2c2c;
+  cursor: pointer;
+  font-size: 1.3rem;
+  padding: 5%;
+  border: 0;
+  transition: all 0.5s;
+  border-radius: 10px;
+  width: auto;
+  position: relative;
+  box-shadow: #adcfff 0 -12px 6px inset;
+  min-width: 150px;
+  right: 0px;
+}
+
+/* .logout_btn::after {
+  content: "\f2f5";
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 400;
+  position: absolute;
+  overflow: hidden;
+  left: 80%;
+  top: 54%;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+} */
+
+.logout_btn:hover {
+  background: #ff4b2b;
+  transition: all 0.5s;
+  border-radius: 10px;
+  box-shadow: 0px 6px 15px #fb0a0a61;
+  overflow: hidden;
+  /* padding: 1.5rem 3rem 1.5rem 1.5rem; */
+  color: #ffffff;
+}
+
+/* .logout_btn::after {
+  opacity: 1;
+  transition: all 0.5s;
+  overflow: hidden;
+  color: #ffffff;
+} */
+
+/* ************************************************************ */
+
+.pr {
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  display: inline-block;
+  border: 4px double rgba(255, 255, 255, 0.25);
+  border-width: 4px 0;
+  padding: 1.5em 0em;
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: 40em;
+  margin: 0 0 0 -20em;
+}
+.sp {
+  font: 700 4em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: 0.25em 0 0.325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+
+  /* Clip Background Image */
+
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Animate Background Image */
+
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 80s linear infinite;
+
+  /* Activate hardware acceleration for smoother animations */
+
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+
+.log {
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  animation: logout 1s linear;
+}
+@keyframes logout {
+  0% {
+    opacity: 0.1;
+    top: 15%;
+  }
+  25% {
+    opacity: 0.3;
+    top: 13%;
+  }
+  50% {
+    opacity: 0.6;
+    top: 10%;
+  }
+  75% {
+    opacity: 0.9;
+    top: 5%;
+  }
+  100% {
+    opacity: 1;
+    top: 1%;
+  }
+}
+
+.linkes {
+  position: absolute;
+  bottom: 45%;
+  margin: auto;
+  width: 100%;
+  animation: demo 1s linear;
+}
+
+@media (max-width: 1440px) {
+  .links {
+    bottom: 35%;
+  }
+}
+
+@keyframes demo {
+  0% {
+    opacity: 0.1;
+    bottom: 33%;
+  }
+  25% {
+    opacity: 0.3;
+    bottom: 35%;
+  }
+  50% {
+    opacity: 0.6;
+    bottom: 38%;
+  }
+  75% {
+    opacity: 0.9;
+    bottom: 43%;
+  }
+  100% {
+    opacity: 1;
+    bottom: 45%;
+  }
+}
+
+/* Animate Background Image */
+
+@-webkit-keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ********************************* BUTTONS ************************************** */
+
+/* CSS */
+.button_73 {
+  appearance: none;
+  background-color: #ffffff;
+  border-radius: 40em;
+  border-style: none;
+  box-shadow: #adcfff 0 -12px 6px inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.24px;
+  margin: 0;
+  margin-left: 27px;
+  outline: none;
+  padding: 1rem 1.3rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button_73:hover {
+  background-color: #ffc229;
+  box-shadow: #ff6314 0 -6px 8px inset;
+  transform: scale(1.125);
+}
+
+.button_73:active {
+  transform: scale(1.025);
+}
+
+@media (min-width: 768px) {
+  .button-73 {
+    font-size: 1.5rem;
+    padding: 0.75rem 2rem;
+  }
+}

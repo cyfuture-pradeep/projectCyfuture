@@ -1,0 +1,66 @@
+.inputDiv{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.input{
+    box-sizing: border-box;
+    padding: 10px;
+    border: none;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.dInp{
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 0.1px;
+    outline: none;
+    text-align: center;
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.button{
+    padding: 5px;
+    background-color: yellow;
+    color: black;
+}
+
+.valid{
+    border: 2px solid green;
+}
+
+.danger{
+    border-bottom: 2px solid red;
+}
+
+
+/* **************************************************************** */
+
+.Container{
+    width: 50%;
+    position: absolute;
+    background-color: rgba(79, 231, 231, 0.612);
+    display: flex;
+    margin-top: 30px;
+    margin-left: 25%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    width: 50%;
+    position: relative;
+    left: 0%;
+}

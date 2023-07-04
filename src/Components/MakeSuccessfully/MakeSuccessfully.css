@@ -1,0 +1,36 @@
+.container_successfull {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  text-align: center;
+}
+.content {
+  color: black;
+  height: fit-content;
+  background-color: rgba(255, 210, 125, 0.578);
+  position: relative;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  top: 19%;
+}
+
+.data {
+  font-size: 1.2rem;
+  width: 100vw;
+}
+
+@media (max-width: 617px) {
+  .data {
+    width: fit-content;
+  }
+}
+
+.shareLink {
+  padding: 18px;
+  border-radius: 23px;
+  background-color: #b8ffb9;
+}
