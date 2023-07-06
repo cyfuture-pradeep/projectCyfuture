@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 const PaperCreatedSuccessfully = (props) => {
   const history = useHistory();
   const [copy, setCopy] =
-    useState(`https://papermaker-c81e4.web.app/GenerateLink/paper
+    useState(`https://cyfproject2023.web.app/GenerateLink/paper
                   ${props.RandomNo}/${props.userId}`);
 
   const [clicked, setClicked] = useState(false);

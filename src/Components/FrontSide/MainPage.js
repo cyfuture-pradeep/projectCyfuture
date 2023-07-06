@@ -26,7 +26,7 @@ const MainPage = () => {
         </button>
       </div>
       <p className="pr">
-        <span className="sp">Paper Maker</span>
+        <span className="sp">Problems</span>
       </p>
     </div>
   );

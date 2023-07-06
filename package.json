@@ -45,6 +45,8 @@
     "react-icon": "^1.0.0",
     "react-icons": "^4.4.0",
     "react-redux": "^7.2.6",
+    "react-router-dom": "^5.2.0",
+    "reactstrap": "^9.2.0",
     "redirect": "^0.2.0",
     "resolve": "1.6.0",
     "routes": "^2.1.0",

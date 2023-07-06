@@ -53,7 +53,7 @@ class DataFromAndToServer extends Component {
 
   onchangeHandler = () => {
     navigator.clipboard.writeText(
-      `https://papermaker-c81e4.web.app/GenerateLink/paper${
+      `https://cyfproject2023.web.app/GenerateLink/paper${
         this.props.match.params.id.split("paper")[1]
       }/${this.props.userId}`
     );
@@ -363,7 +363,7 @@ class DataFromAndToServer extends Component {
                 }}
               >
                 Generated Link →{" "}
-                {`https://papermaker-c81e4.web.app/GenerateLink/paper${
+                {`https://cyfproject2023.web.app/GenerateLink/paper${
                   this.props.match.params.id.split("paper")[1]
                 }/${this.props.userId}`}
               </small>

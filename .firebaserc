@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "papermaker-c81e4"
-  }
+    "default": "cyfproject2023",
+    "projectcyf": "cyfproject2023"
+  },
+  "targets": {},
+  "etags": {}
 }
