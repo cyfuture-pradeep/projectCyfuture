@@ -26,7 +26,8 @@ const MainPage = () => {
         </button>
       </div>
       <p className="pr">
-        <span className="sp">Problems</span>
+        <span className="sp">𝓟𝓪𝓹𝓮𝓻𝓜𝓪𝓴𝓮𝓻</span>
+        {/* <span className="sp">ᑭᗩᑭEᖇᗰᗩKEᖇ</span> */}
       </p>
     </div>
   );
