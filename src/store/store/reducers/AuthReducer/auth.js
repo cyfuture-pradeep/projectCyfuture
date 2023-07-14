@@ -9,6 +9,7 @@ let initialState = {
   loading_2: false,
   loading_2: false,
   randomNo: 0,
+ 
   noOfSingleChoiceQuestion: 0,
   noOfMultipleChoiceQuestion: 0,
   noOfParagraphQuestion: 0,
@@ -22,8 +23,14 @@ const authSuccessfun = (state, action) => {
     loading_2: false,
     idToken: action.idToken,
     userId: action.localId,
+    loginNavigation : false,
     error: null,
   });
+};
+
+const authEnd = (state, action) => {
+  return updateObject(state,
+    { loading: false});
 };
 
 const pushRandomNO = (state, action) => {
@@ -84,6 +91,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.AUTH_START:
       return authStartfun(state, action);
+    case actionTypes.AUTH_END:
+      return authEnd(state, action);
     case actionTypes.AUTH_SUCCESS:
       return authSuccessfun(state, action);
     case actionTypes.AUTH_FAIL:

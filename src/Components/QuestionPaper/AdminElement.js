@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./QuestionPaper.css";
 import AllQuestions from "../DataFromServer/AllPapers";
-import AllResponces from "../QuestionButtons/Responce/AllResponces";
+import AllResponses from "../QuestionButtons/Response/AllResponses"
 import * as actions from "../../store/store/actions/index";
 import { Link, NavLink, Route } from "react-router-dom";
 import { connect } from "react-redux";
@@ -9,7 +9,7 @@ class AdminElement extends Component {
   state = {
     MakePaperClicked: false,
     AllQuestionPaperShow: false,
-    AllResponceShow: false,
+    AllResponseShow: false,
   };
 
   Logout = () => {
@@ -18,16 +18,16 @@ class AdminElement extends Component {
   };
 
   AllPapersToggle = () => {
-    this.setState({ AllQuestionPaperShow: true, AllResponceShow: false });
+    this.setState({ AllQuestionPaperShow: true, AllResponseShow: false });
   };
 
-  AllResponceToggle = () => {
-    this.setState({ AllQuestionPaperShow: false, AllResponceShow: true });
+  AllResponseToggle = () => {
+    this.setState({ AllQuestionPaperShow: false, AllResponseShow: true });
   };
 
   render() {
     let CreateButton =
-      this.state.AllQuestionPaperShow || this.state.AllResponceShow;
+      this.state.AllQuestionPaperShow || this.state.AllResponseShow;
     return (
       <div className="html">
         <div className="Icon_Container">
@@ -55,17 +55,17 @@ class AdminElement extends Component {
             this.state.toggle ? `dropdown_Show` : ``
           }`}
         >
-          <Link style={{ textDecoration: "none" }} to="/createPapers">
+          <Link className = "linkInsideDropdown" to="/createPapers">
             <strong>Create Paper</strong>
           </Link>
-          <Link style={{ textDecoration: "none" }} to="/allPapers">
+          <Link className = "linkInsideDropdown" to="/allPapers">
             <strong>All Papers</strong>
           </Link>
-          <Link style={{ textDecoration: "none" }} to="/allResponces">
-            <strong>All Responces</strong>
+          <Link className = "linkInsideDropdown" to="/allResponses">
+            <strong>All Responses</strong>
           </Link>
           <Link
-            style={{ textDecoration: "none" }}
+            className = "linkInsideDropdown"
             onClick={this.Logout}
             // activeClassName="logout"
             to="/"
@@ -73,16 +73,16 @@ class AdminElement extends Component {
             <strong>Logout</strong>
           </Link>
         </div>
-        {!this.state.AllQuestionPaperShow && !this.state.AllResponceShow ? (
+        {!this.state.AllQuestionPaperShow && !this.state.AllResponseShow ? (
           <div className="NavBar">
             <Link to="/allPapers" style={{ textDecoration: "none" }}>
               <button className="btnGrd" onClick={this.AllPapersToggle}>
                 All Papers
               </button>
             </Link>
-            <Link to="/allResponces" style={{ textDecoration: "none" }}>
-              <button className="btnGrd" onClick={this.AllResponceToggle}>
-                All Responces
+            <Link to="/allResponses" style={{ textDecoration: "none" }}>
+              <button className="btnGrd" onClick={this.AllResponseToggle}>
+                All Responses
               </button>
             </Link>
           </div>
@@ -93,8 +93,8 @@ class AdminElement extends Component {
             userId={this.props.userId}
           />
         ) : null}
-        {this.state.AllResponceShow ? (
-          <AllResponces userId={this.props.userId} />
+        {this.state.AllResponseShow ? (
+          <AllResponses userId={this.props.userId} />
         ) : null}
       </div>
     );

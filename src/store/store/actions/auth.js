@@ -6,6 +6,11 @@ export const authStart = () => {
     type: actionTypes.AUTH_START,
   };
 };
+export const authEnd = () => {
+  return {
+    type: actionTypes.AUTH_END,
+  };
+};
 
 export const authSuccess = (idToken, localId) => {
   return {
@@ -136,15 +141,21 @@ export const auth = (email, password, isSignUp) => {
     if (DummyData.email !== "") {
       axios
         .post(url, DummyData)
-        .then((responce) => {
+        .then((response) => {
           const expirationTime = new Date(
-            new Date().getTime() + responce.data.expiresIn * 1000
+            new Date().getTime() + response.data.expiresIn * 1000
           );
-          localStorage.setItem("idToken", responce.data.idToken);
-          localStorage.setItem("expirationTime", expirationTime);
-          localStorage.setItem("localId", responce.data.localId);
-          dispatch(authSuccess(responce.data.idToken, responce.data.localId));
-          dispatch(expiresInThisTime(responce.data.expiresIn));
+
+          if(isSignUp == true){
+            dispatch(authEnd());
+            // console.log("Sign Complete and redirected to login")
+          }else{
+            localStorage.setItem("idToken", response.data.idToken);
+            localStorage.setItem("expirationTime", expirationTime);
+            localStorage.setItem("localId", response.data.localId);
+            dispatch(authSuccess(response.data.idToken, response.data.localId));
+            dispatch(expiresInThisTime(response.data.expiresIn));
+          }
         })
         .catch((err) => {
           if (err.response != null) dispatch(authFail(err.response.data.error));

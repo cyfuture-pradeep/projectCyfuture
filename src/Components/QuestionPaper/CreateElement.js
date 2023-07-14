@@ -30,7 +30,7 @@ class CreateElement extends Component {
     MakePaperClicked: false,
     Random: Math.floor(Math.random() * 10000),
     AllQuestionPaperShow: false,
-    AllResponceShow: false,
+    AllResponseShow: false,   
     toggle: false,
     loading: false,
   };
@@ -160,17 +160,17 @@ class CreateElement extends Component {
             this.state.toggle ? `dropdown_Show` : ``
           }`}
         >
-          <Link style={{ textDecoration: "none" }} to="/createPapers">
+          <Link className = "linkInsideDropdown" to="/createPapers">
             <strong>Create Paper</strong>
           </Link>
-          <Link style={{ textDecoration: "none" }} to="/allPapers">
+          <Link className = "linkInsideDropdown" to="/allPapers">
             <strong>All Papers</strong>
           </Link>
-          <Link style={{ textDecoration: "none" }} to="/allResponces">
-            <strong>All Responces</strong>
+          <Link className = "linkInsideDropdown" to="/allResponses">
+            <strong>All Responses</strong>
           </Link>
           <Link
-            style={{ textDecoration: "none" }}
+            className = "linkInsideDropdown"
             onClick={this.Logout}
             // activeClassName="logout"
             to="/"
@@ -208,21 +208,21 @@ class CreateElement extends Component {
         <div className="question_Content" style={style}>
           <SingleChoiceQuestion
             isClicked={this.state.SingleClicked}
-            cancle={this.updateSingleClickEvent}
+            cancel={this.updateSingleClickEvent}
             hide={this.updatehide}
             data={this.state}
           />
 
           <MultipleChoiceQuestion
             isClicked={this.state.MultipleClicked}
-            cancle={this.updateMultipleClickEvent}
+            cancel={this.updateMultipleClickEvent}
             hide={this.updatehide}
             data={this.state}
             noOfQues={this.props.noOfSingleChoiceQuestion}
           />
           <ParagraphQuestion
             isClicked={this.state.ParagraphClicked}
-            cancle={this.updatePragraphClickEvent}
+            cancel={this.updatePragraphClickEvent}
             hide={this.updatehide}
             data={this.state}
             noOfQues={

@@ -41,12 +41,14 @@ class Auth extends Component {
       },
     },
     isAllFieldsAreValid: false,
-    isSignUp: false,
+    isSignUp: this.props.isSignUp != undefined ? this.props.isSignUp : false ,
   };
 
   SwitchToLogin = (event) => {
+
+    // console.log(this.props.isSignUp , this.state.isSignUp , "sifgn")
     event.preventDefault();
-    this.setState({ isSignUp: true });
+    this.setState({ isSignUp: !this.state.isSignUp });
   };
 
   checkValidity(value, rules) {
@@ -190,6 +192,8 @@ class Auth extends Component {
     if (this.state.isSignUp) {
       finalData = <Sign_up />;
     }
+
+    console.log(this.state.isSignUp , "From Auth.js")
     return <div>{finalData}</div>;
   }
 }
@@ -208,6 +212,7 @@ const mapPropsToState = (state) => {
     idToken: state.reducer.idToken,
     isAuth: state.reducer.idToken != null,
     userId: state.reducer.userId,
+    loginNavigation : state.reducer.loginNavigation
   };
 };
 

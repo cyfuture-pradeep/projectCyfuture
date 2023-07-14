@@ -173,7 +173,7 @@
   }
 }
 @media (max-width: 605px) {
-  .responce {
+  .response {
     left: 0%;
   }
 }
@@ -200,7 +200,7 @@
   margin-left: 30px;
 }
 
-.cancle {
+.cancel {
   padding: 5px;
   margin: 2px;
   outline: 1px solid rgb(247, 62, 62);
@@ -208,7 +208,7 @@
   color: rgb(247, 45, 45);
 }
 
-.cancle:hover {
+.cancel:hover {
   background-color: rgb(255, 0, 0);
   box-shadow: 1px 1px 5px black;
   color: white;
@@ -323,7 +323,7 @@
   /* width: -webkit-fill-available */
 }
 
-.responce {
+.response {
   width: fit-content;
   padding: 9px;
   background-color: #00ffff1f;

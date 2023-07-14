@@ -6,22 +6,22 @@ import {
   Paper_Created,
   Paper_is_creating,
 } from "../../../store/store/actions/auth";
-import SingleResponce from "./SingleResponce";
+import SingleResponse from "./SingleResponse";
 import Spinner from "../../Spinner/Spinner";
 import { Link } from "react-router-dom";
-class ResponceFromServer extends Component {
+class ResponseFromServer extends Component {
   state = {
     final: [],
     tempUser: null,
-    userResponce: null,
+    userResponse: null,
   };
 
   componentDidMount() {
     this.props.onCreating();
     axios
-      .get("/Responces/" + this.props.match.params.id + ".json")
-      .then((responce) => {
-        this.setState({ final: responce.data });
+      .get("/Responses/" + this.props.match.params.id + ".json")
+      .then((response) => {
+        this.setState({ final: response.data });
         this.props.onCreated();
       });
   }
@@ -39,7 +39,7 @@ class ResponceFromServer extends Component {
           return (
             <div>
               <button
-                className="button_responce"
+                className="button_response"
                 onClick={(e) => this.deside({ inner: e, res: res })}
                 key={i}
               >
@@ -55,7 +55,7 @@ class ResponceFromServer extends Component {
         <h3>Papers Created By User</h3>
         {!this.state.tempUser ? <div>{CandidateDetails}</div> : null}
         {this.state.tempUser ? (
-          <SingleResponce
+          <SingleResponse
             tempUser={this.state.tempUser}
             id={this.props.match.params.id}
           />
@@ -75,13 +75,13 @@ class ResponceFromServer extends Component {
         >
           <div className="Icon_Container nav-item" style={{ left: "0px" }}>
             <div>
-              <Link to="/allResponces">
+              <Link to="/allResponses">
                 {" "}
                 <i class="fa fa-arrow-circle-left"></i>
               </Link>
             </div>
           </div>
-          <div className="nav-item">Responces</div>
+          <div className="nav-item">Responses</div>
         </div>
         <div className="questionDiv">{finalData}</div>;
       </div>
@@ -106,4 +106,4 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
   mapDispathchToProps
-)(ResponceFromServer);
+)(ResponseFromServer);

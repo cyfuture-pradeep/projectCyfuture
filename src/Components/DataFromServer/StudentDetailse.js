@@ -82,7 +82,7 @@ class StudentDetails extends Component {
         });
       }
       let StudentDetailse = {
-        Responce: this.props.details,
+        Response: this.props.details,
         contact: {
           Name: this.state.controls.name.value,
           Roll_No: this.state.controls.rollNo.value,
@@ -92,13 +92,13 @@ class StudentDetails extends Component {
 
       for (let h = 0; h < previousAns.length; h++) {
         axios.post(
-          "/Responces/ResponceOf" + this.props.paperId + ".json",
+          "/Responses/ResponseOf" + this.props.paperId + ".json",
           previousAns[h]
         );
       }
       axios
         .post(
-          "/Responces/ResponceOf" + this.props.paperId + ".json",
+          "/Responses/ResponseOf" + this.props.paperId + ".json",
           StudentDetailse
         )
         .then((res) => {
@@ -211,7 +211,7 @@ class StudentDetails extends Component {
             click={this.submitHandler}
             disabled={!this.state.isAllFieldsAreValid}
           >
-            Save Responce
+            Save Response
           </Button>
         </form>
       </div>

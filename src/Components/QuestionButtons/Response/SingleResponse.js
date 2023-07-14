@@ -7,26 +7,26 @@ import {
 } from "../../../store/store/actions/auth";
 import axios from "../../../axios/axios";
 import Spinner from "../../Spinner/Spinner";
-class SingleResponce extends Component {
+class SingleResponse extends Component {
   componentDidMount() {
     this.props.onCreating_2();
     axios
-      .get("/Responces/" + this.props.id + "/" + this.props.tempUser + ".json")
+      .get("/Responses/" + this.props.id + "/" + this.props.tempUser + ".json")
       .then((res) => {
-        this.setState({ userResponce: res.data });
+        this.setState({ userResponse: res.data });
         this.props.onCreated_2();
       })
       .catch((err) => alert(err));
   }
   state = {
-    userResponce: null,
+    userResponse: null,
   };
   render() {
-    let responce = null;
+    let response = null;
     let dataValue = null;
     let userDetails = null;
-    if (this.state.userResponce !== null) {
-      responce = Object.values(this.state.userResponce).map((ig, i) => {
+    if (this.state.userResponse !== null) {
+      response = Object.values(this.state.userResponse).map((ig, i) => {
         if (i === 0) {
           dataValue = ig.map
             ? ig.map((data, l) => {
@@ -83,4 +83,4 @@ const mapDispathchToProps = (dispatch) => {
     onCreated_2: () => dispatch(Paper_Created_2()),
   };
 };
-export default connect(mapPropsToState, mapDispathchToProps)(SingleResponce);
+export default connect(mapPropsToState, mapDispathchToProps)(SingleResponse);

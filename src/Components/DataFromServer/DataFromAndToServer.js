@@ -13,7 +13,7 @@ import { Button } from "reactstrap";
 class DataFromAndToServer extends Component {
   state = {
     final: [],
-    Responce: [],
+    Response: [],
     oldData: [],
     check: false,
     SubmitClicked: false,
@@ -25,19 +25,19 @@ class DataFromAndToServer extends Component {
     this.props.onCreating_2();
     axios
       .get("/Papers/" + this.props.match.params.id + ".json")
-      .then((responce) => {
-        this.setState({ final: responce.data });
+      .then((response) => {
+        this.setState({ final: response.data });
         this.props.onCreated_2();
       });
   }
 
   updateSingleChoiceAnswer = (e) => {
-    let tempResponce = [...this.state.Responce];
+    let tempResponse = [...this.state.Response];
 
-    for (let p = 0; p < tempResponce.length; p++) {
-      if (tempResponce[p].QuestionState === e.QuestionStatement) {
-        tempResponce[p].QuesAnswer = e.optionsChoice;
-        this.setState({ Responce: tempResponce });
+    for (let p = 0; p < tempResponse.length; p++) {
+      if (tempResponse[p].QuestionState === e.QuestionStatement) {
+        tempResponse[p].QuesAnswer = e.optionsChoice;
+        this.setState({ Response: tempResponse });
         return;
       }
     }
@@ -47,8 +47,8 @@ class DataFromAndToServer extends Component {
       QuesAnswer: e.optionsChoice,
     };
 
-    let oldArray = [...this.state.Responce, answer];
-    this.setState({ Responce: oldArray });
+    let oldArray = [...this.state.Response, answer];
+    this.setState({ Response: oldArray });
   };
 
   onchangeHandler = () => {
@@ -62,31 +62,31 @@ class DataFromAndToServer extends Component {
   };
 
   updateMultipleChiceAnswer = (e) => {
-    let tempResponce = [...this.state.Responce];
-    for (let p = 0; p < tempResponce.length; p++) {
-      if (tempResponce[p].QuestionState === e.QuestionStatment) {
-        for (let j = 0; j < tempResponce[p].QuesAnswer.length; j++) {
-          if (tempResponce[p].QuesAnswer[j] === e.optionsChoice) {
+    let tempResponse = [...this.state.Response];
+    for (let p = 0; p < tempResponse.length; p++) {
+      if (tempResponse[p].QuestionState === e.QuestionStatment) {
+        for (let j = 0; j < tempResponse[p].QuesAnswer.length; j++) {
+          if (tempResponse[p].QuesAnswer[j] === e.optionsChoice) {
             {
-              tempResponce[p].QuesAnswer.splice(j, 1);
-              if (tempResponce[p].QuesAnswer.length === 0) {
-                this.setState({ Responce: tempResponce, check: true });
+              tempResponse[p].QuesAnswer.splice(j, 1);
+              if (tempResponse[p].QuesAnswer.length === 0) {
+                this.setState({ Response: tempResponse, check: true });
               }
-              this.setState({ Responce: tempResponce });
+              this.setState({ Response: tempResponse });
               return null;
             }
           }
         }
-        if (tempResponce[p].QuesAnswer.length === 0) {
-          tempResponce[p].QuesAnswer = [e.optionsChoice];
-          this.setState({ Responce: tempResponce, check: false });
+        if (tempResponse[p].QuesAnswer.length === 0) {
+          tempResponse[p].QuesAnswer = [e.optionsChoice];
+          this.setState({ Response: tempResponse, check: false });
           return null;
         } else
-          tempResponce[p].QuesAnswer = [
-            ...tempResponce[p].QuesAnswer,
+          tempResponse[p].QuesAnswer = [
+            ...tempResponse[p].QuesAnswer,
             e.optionsChoice,
           ];
-        this.setState({ Responce: tempResponce });
+        this.setState({ Response: tempResponse });
         return null;
       }
     }
@@ -96,16 +96,16 @@ class DataFromAndToServer extends Component {
       QuesAnswer: [e.optionsChoice],
     };
 
-    let oldArray = [...this.state.Responce, answer];
-    this.setState({ Responce: oldArray, check: false });
+    let oldArray = [...this.state.Response, answer];
+    this.setState({ Response: oldArray, check: false });
   };
 
   updateParagraphAnswer = (e) => {
-    let tempResponce = this.state.Responce;
-    for (let i = 0; i < tempResponce.length; i++) {
-      if (tempResponce[i].QuestionState === e.QuestionStatment) {
-        tempResponce[i].QuesAnswer = e.innerData.target.value;
-        this.setState({ Responce: tempResponce });
+    let tempResponse = this.state.Response;
+    for (let i = 0; i < tempResponse.length; i++) {
+      if (tempResponse[i].QuestionState === e.QuestionStatment) {
+        tempResponse[i].QuesAnswer = e.innerData.target.value;
+        this.setState({ Response: tempResponse });
         return null;
       }
     }
@@ -119,22 +119,22 @@ class DataFromAndToServer extends Component {
       QuesAnswer: e.innerData.target.value,
     };
 
-    let updatedResponce = [...this.state.Responce, temp];
+    let updatedResponse = [...this.state.Response, temp];
 
-    this.setState({ Responce: updatedResponce });
+    this.setState({ Response: updatedResponse });
   };
 
-  PostResponceToServer = () => {
+  PostResponseToServer = () => {
     this.setState({ clicked: true });
     this.props.onCreating_2();
     axios
-      .get("/Responces/ResponceOf" + this.props.match.params.id + ".json")
+      .get("/Responses/ResponseOf" + this.props.match.params.id + ".json")
       .then((res) => {
         if (res.data !== null) this.setState({ oldData: res.data });
       })
       .catch((err) => alert(err));
     axios
-      .put("/Responces/ResponceOf" + this.props.match.params.id + ".json", {
+      .put("/Responses/ResponseOf" + this.props.match.params.id + ".json", {
         userId: this.props.userId,
       })
       .then((res) => {
@@ -254,7 +254,7 @@ class DataFromAndToServer extends Component {
                           </div>
 
                           <span
-                            className={`responce , ${
+                            className={`response , ${
                               QuestionData[1] === "Paragraph Type Question"
                                 ? "hide"
                                 : "show"
@@ -267,7 +267,7 @@ class DataFromAndToServer extends Component {
                             {" "}
                             Your Selected Answer is{" "}
                             <span style={{ color: "black" }}>
-                              {this.state.Responce.map((res) => {
+                              {this.state.Response.map((res) => {
                                 if (
                                   res.QuestionState === QuestionData[0] &&
                                   QuestionData[1] === "Single Choice Question"
@@ -314,7 +314,7 @@ class DataFromAndToServer extends Component {
             <StudentDetailse
               oldData={this.state.oldData}
               show={false}
-              details={this.state.Responce}
+              details={this.state.Response}
               userId={this.props.userId}
               paperId={this.props.match.params.id}
             />
@@ -325,7 +325,7 @@ class DataFromAndToServer extends Component {
         {!this.state.SubmitClicked ? (
           <button
             className={"submitQuestionPaper"}
-            onClick={this.PostResponceToServer}
+            onClick={this.PostResponseToServer}
           >
             Submit
           </button>

@@ -10,7 +10,7 @@ class ParagraphQuestion extends Component {
     inputQuestion: "",
     final: [],
     currQuesNo: this.props.noOfQues + 1,
-    Responce: [],
+    Response: [],
     edit: false,
     editedData: {},
   };
@@ -26,12 +26,12 @@ class ParagraphQuestion extends Component {
   inputQuestionData = (e) => {
     this.setState({ inputQuestion: e.target.value });
   };
-  updateResponce = (e) => {
-    let tempResponce = this.state.Responce;
-    for (let i = 0; i < tempResponce.length; i++) {
-      if (tempResponce[i].QuestionState === e.QuesStatement) {
-        tempResponce[i].QuesAnswer = e.innerData.target.value;
-        this.setState({ Responce: tempResponce });
+  updateResponse = (e) => {
+    let tempResponse = this.state.Response;
+    for (let i = 0; i < tempResponse.length; i++) {
+      if (tempResponse[i].QuestionState === e.QuesStatement) {
+        tempResponse[i].QuesAnswer = e.innerData.target.value;
+        this.setState({ Response: tempResponse });
         return null;
       }
     }
@@ -40,10 +40,10 @@ class ParagraphQuestion extends Component {
       QuesAnswer: e.innerData.target.value,
     };
 
-    let updatedResponce = [...this.state.Responce, temp];
+    let updatedResponse = [...this.state.Response, temp];
 
     this.setState({
-      Responce: updatedResponce,
+      Response: updatedResponse,
       inputQuestion: "",
       inputValue: "",
     });
@@ -173,7 +173,7 @@ class ParagraphQuestion extends Component {
                       cols="20"
                       rows="5"
                       onChange={(e) =>
-                        this.updateResponce({
+                        this.updateResponse({
                           QuesStatement: singleObject.Question,
                           innerData: e,
                         })
@@ -227,8 +227,8 @@ class ParagraphQuestion extends Component {
             >
               Update
             </button>
-            <button className="cancle" onClick={this.clear}>
-              CANCLE
+            <button className="cancel" onClick={this.clear}>
+               CANCEL
             </button>
           </div>
         </div>
@@ -260,8 +260,8 @@ class ParagraphQuestion extends Component {
             <button onClick={this.finalAdd} className={"submit"}>
               Submit
             </button>
-            <button className={"cancle"} onClick={this.props.cancle}>
-              CANCLE
+            <button className={"cancel"} onClick={this.props.cancel}>
+               CANCEL
             </button>
           </div>
         </div>

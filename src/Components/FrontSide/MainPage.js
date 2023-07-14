@@ -16,8 +16,8 @@ const MainPage = () => {
         <Link to="/createPapers">
           <button className="button_73">Create Paper</button>
         </Link>
-        <Link to="/SeePapersAndResponce">
-          <button className="button_73">See All Responces And Papers</button>
+        <Link to="/SeePapersAndResponse">
+          <button className="button_73">See All Responses And Papers</button>
         </Link>
       </div>
       <div className="log">
@@ -27,6 +27,7 @@ const MainPage = () => {
       </div>
       <p className="pr">
         <span className="sp">𝓟𝓪𝓹𝓮𝓻𝓜𝓪𝓴𝓮𝓻</span>
+        {/* <span className="sp">𝓠𝓾𝓮𝓼𝓽𝓲𝓸𝓷 𝓹𝓪𝓹𝓮𝓻 𝓶𝓪𝓴𝓮𝓻</span> */}
         {/* <span className="sp">ᑭᗩᑭEᖇᗰᗩKEᖇ</span> */}
       </p>
     </div>

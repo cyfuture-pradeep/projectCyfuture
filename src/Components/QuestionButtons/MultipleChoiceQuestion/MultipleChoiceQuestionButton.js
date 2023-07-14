@@ -14,7 +14,7 @@ class MultipleChoiceQuestion extends Component {
     isDeleteVisible: false,
     isPreviewClicked: false,
     PreviewShow: false,
-    Responce: [],
+    Response: [],
     edit: false,
     editedData: {},
   };
@@ -109,26 +109,26 @@ class MultipleChoiceQuestion extends Component {
   };
 
   updateAnswer = (e) => {
-    let tempResponce = [...this.state.Responce];
-    for (let p = 0; p < tempResponce.length; p++) {
-      if (tempResponce[p].QuestionState === e.QuestionStatement) {
-        for (let j = 0; j < tempResponce[p].QuesAnswer.length; j++) {
-          if (tempResponce[p].QuesAnswer[j] === e.optionsChoice) {
+    let tempResponse = [...this.state.Response];
+    for (let p = 0; p < tempResponse.length; p++) {
+      if (tempResponse[p].QuestionState === e.QuestionStatement) {
+        for (let j = 0; j < tempResponse[p].QuesAnswer.length; j++) {
+          if (tempResponse[p].QuesAnswer[j] === e.optionsChoice) {
             {
-              tempResponce[p].QuesAnswer.splice(j, 1);
-              this.setState({ Responce: tempResponce });
+              tempResponse[p].QuesAnswer.splice(j, 1);
+              this.setState({ Response: tempResponse });
               return null;
             }
           }
         }
-        if (tempResponce[p].QuesAnswer.length === 0)
-          tempResponce[p].QuesAnswer = [e.optionsChoice];
+        if (tempResponse[p].QuesAnswer.length === 0)
+          tempResponse[p].QuesAnswer = [e.optionsChoice];
         else
-          tempResponce[p].QuesAnswer = [
-            ...tempResponce[p].QuesAnswer,
+          tempResponse[p].QuesAnswer = [
+            ...tempResponse[p].QuesAnswer,
             e.optionsChoice,
           ];
-        this.setState({ Responce: tempResponce });
+        this.setState({ Response: tempResponse });
         return null;
       }
     }
@@ -138,8 +138,8 @@ class MultipleChoiceQuestion extends Component {
       QuesAnswer: [e.optionsChoice],
     };
 
-    let oldArray = [...this.state.Responce, answer];
-    this.setState({ Responce: oldArray });
+    let oldArray = [...this.state.Response, answer];
+    this.setState({ Response: oldArray });
   };
 
   finalAdd = () => {
@@ -364,12 +364,12 @@ class MultipleChoiceQuestion extends Component {
                       {option}
                     </div>
                     <span
-                      className="responce"
+                      className="response"
                       style={{ width: "-webkit-fill-available" }}
                     >
                       Your Selected Answer is{" "}
                       <span>
-                        {this.state.Responce.map((res) => {
+                        {this.state.Response.map((res) => {
                           if (res.QuestionState === singleObject.Question) {
                             return res.QuesAnswer.map((ig) => {
                               return <span>{ig},</span>;
@@ -447,8 +447,8 @@ class MultipleChoiceQuestion extends Component {
             >
               Update
             </button>
-            <button className="cancle" onClick={this.clear}>
-              CANCLE
+            <button className="cancel" onClick={this.clear}>
+               CANCEL
             </button>
           </div>
           {choise}
@@ -497,10 +497,10 @@ class MultipleChoiceQuestion extends Component {
               Submit
             </button>
             <button
-              className="cancle"
-              onClick={(e) => [this.props.cancle(), this.clear()]}
+              className="cancel"
+              onClick={(e) => [this.props.cancel(), this.clear()]}
             >
-              CANCLE
+               CANCEL
             </button>
           </div>
           {choise}

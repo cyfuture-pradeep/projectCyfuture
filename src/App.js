@@ -11,9 +11,9 @@ import CreateElement from "./Components/QuestionPaper/CreateElement";
 import AdminElement from "./Components/QuestionPaper/AdminElement";
 import PaperCreatedSuccessfully from "./Components/MakeSuccessfully/MakeSuccessfully";
 import Auth from "./Components/Login_Form/Auth";
-import AllResponces from "../src/Components/QuestionButtons/Responce/AllResponces";
+import AllResponses from "../src/Components/QuestionButtons/Response/AllResponses";
 import DataFromAndToServer from "./Components/DataFromServer/DataFromAndToServer";
-import ResponceFromServer from "./Components/QuestionButtons/Responce/ResponceFromServer";
+import ResponseFromServer from "./Components/QuestionButtons/Response/ResponseFromServer";
 
 class App extends Component {
   componentDidMount() {
@@ -31,6 +31,8 @@ class App extends Component {
               component={DataFromGeneratedLink}
             />
             {!this.props.isAuth ? <Auth isSignUp={false} /> : null}
+            {/* <Route exact path="/navigateToLogin" component={() => <Auth isSignUp={false} />} /> */}
+            {/* {this.props.loginNavigation ? <Auth isSignUp={true} /> : null} */}
             {/* <Route
               exact
               path="/Auth"
@@ -41,13 +43,13 @@ class App extends Component {
             <Route exact path="/createPapers" component={CreateElement} />
             <Route
               exact
-              path="/SeePapersAndResponce"
+              path="/SeePapersAndResponse"
               component={AdminElement}
             />
             <Route
               exact
-              path="/allResponces"
-              component={() => <AllResponces userId={this.props.userId} />}
+              path="/allResponses"
+              component={() => <AllResponses userId={this.props.userId} />}
             />
             <Route
               exact
@@ -66,8 +68,8 @@ class App extends Component {
             />
             <Route
               exact
-              path="/perticularResponce/:id"
-              component={ResponceFromServer}
+              path="/perticularResponse/:id"
+              component={ResponseFromServer}
             />
             <Route
               exact
@@ -98,11 +100,12 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     isAuth: state.reducer.idToken != null,
-    isAuth: state.reducer.idToken !== null,
+    // isAuth: state.reducer.idToken !== null,
     Random_No: state.reducer.randomNo,
     idToken: state.reducer.idToken,
     userId: state.reducer.userId,
     RandomNo: state.reducer.randomNo,
+     loginNavigation : state.reducer.loginNavigation
   };
 };
 

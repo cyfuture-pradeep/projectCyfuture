@@ -54,7 +54,7 @@
   }
 }
 
-.button_responce {
+.button_response {
   padding: 10px;
   width: 100%;
   font-size: 1.4rem;
@@ -67,7 +67,7 @@
   transition: 0.5s linear;
 }
 
-.button_responce:hover {
+.button_response:hover {
   background-color: rgba(28, 247, 28, 0.455);
 }
 

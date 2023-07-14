@@ -6,6 +6,8 @@ import * as actions from "../../store/store/actions/index";
 import Spinner from "../../Components/Spinner/Spinner";
 import Auth from "./Auth";
 import LoginImg from "../../Img/LoginImg.jpg";
+import { Redirect } from "react-router-dom";
+
 
 class Sign_up extends Component {
   state = {
@@ -69,6 +71,7 @@ class Sign_up extends Component {
     isAllFieldsAreValid: false,
     errorShow: false,
     logIn: false,
+    signUpDone : false
   };
 
   checkValidity(value, rules) {
@@ -129,19 +132,24 @@ class Sign_up extends Component {
 
   submitHandler = (event) => {
     event.preventDefault();
-
+    
     if (
       this.state.controls.password.value !==
       this.state.controls.confirm_password.value
-    ) {
-      this.setState({ errorShow: true });
-      return null;
-    }
-    this.props.onAuth(
-      this.state.controls.email.value,
+      ) {
+        this.setState({ errorShow: true });
+        return null;
+      }
+      
+      
+      console.log("button Clicked");
+      this.props.onAuth(
+        this.state.controls.email.value,
       this.state.controls.password.value,
       true
-    );
+      );
+      this.setState({signUpDone : true})
+
   };
 
   SwitchToLogin = () => {
@@ -225,6 +233,7 @@ class Sign_up extends Component {
             >
               Go
             </button>
+
             <div className="button_cont">
               <button className="example_e" onClick={this.SwitchToLogin}>
                 Switch To Log-In
@@ -235,8 +244,9 @@ class Sign_up extends Component {
       </div>
     );
 
-    if (this.state.logIn) {
-      finalData = <Auth />;
+    if (this.state.logIn || this.state.signUpDone) {
+      // finalData = <Auth />;
+      finalData =  <Auth isSignUp = {false} />;
     }
 
     return finalData;

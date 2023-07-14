@@ -12,7 +12,7 @@ class SingleChoiceQuestion extends Component {
     options: [],
     inputQuestion: "",
     final: [],
-    Responce: [],
+    Response: [],
     isDeleteVisible: false,
     isPreviewClicked: false,
     PreviewShow: false,
@@ -81,12 +81,12 @@ class SingleChoiceQuestion extends Component {
   };
 
   updateAnswer = (e) => {
-    let tempResponce = [...this.state.Responce];
+    let tempResponse = [...this.state.Response];
 
-    for (let p = 0; p < tempResponce.length; p++) {
-      if (tempResponce[p].QuestionState === e.QuestionStatement) {
-        tempResponce[p].QuesAnswer = e.optionsChoice;
-        this.setState({ Responce: tempResponce });
+    for (let p = 0; p < tempResponse.length; p++) {
+      if (tempResponse[p].QuestionState === e.QuestionStatement) {
+        tempResponse[p].QuesAnswer = e.optionsChoice;
+        this.setState({ Response: tempResponse });
         return null;
       }
     }
@@ -96,8 +96,8 @@ class SingleChoiceQuestion extends Component {
       QuesAnswer: e.optionsChoice,
     };
 
-    let oldArray = [...this.state.Responce, answer];
-    this.setState({ Responce: oldArray });
+    let oldArray = [...this.state.Response, answer];
+    this.setState({ Response: oldArray });
   };
 
   inputQuestionData = (e) => {
@@ -324,12 +324,12 @@ class SingleChoiceQuestion extends Component {
                         {option}
                       </div>
                       <span
-                        className="responce"
+                        className="response"
                         style={{ width: "-webkit-fill-available" }}
                       >
                         Your Selected Answer is{" "}
                         <span style={{ color: "black" }}>
-                          {this.state.Responce.map((res) => {
+                          {this.state.Response.map((res) => {
                             if (res.QuestionState === singleObject.Question) {
                               return res.QuesAnswer;
                             }
@@ -406,8 +406,8 @@ class SingleChoiceQuestion extends Component {
             >
               Update
             </button>
-            <button className="cancle" onClick={this.clear}>
-              CANCLE
+            <button className="cancel" onClick={this.clear}>
+               CANCEL
             </button>
           </div>
           {choise}
@@ -450,10 +450,10 @@ class SingleChoiceQuestion extends Component {
               Submit
             </button>
             <button
-              className="cancle"
-              onClick={(e) => (this.props.cancle(), this.clear)}
+              className="cancel"
+              onClick={(e) => (this.props.cancel(), this.clear)}
             >
-              CANCLE
+               CANCEL
             </button>
           </div>
           {choise}

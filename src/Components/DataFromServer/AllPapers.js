@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "../../axios/axios";
-import "../QuestionButtons/Responce/button.css";
+import "../QuestionButtons/Response/button.css";
 import { connect } from "react-redux";
 import {
   Paper_Created,
@@ -107,17 +107,17 @@ class AllQuestions extends Component {
           }`}
           style={{ top: "6%", zIndex: "9999999999999" }}
         >
-          <Link style={{ textDecoration: "none" }} to="/createPapers">
+          <Link className = "linkInsideDropdown" to="/createPapers">
             <strong>Create Paper</strong>
           </Link>
-          <Link style={{ textDecoration: "none" }} to="/allPapers">
+          <Link className = "linkInsideDropdown" to="/allPapers">
             <strong>All Papers</strong>
           </Link>
-          <Link style={{ textDecoration: "none" }} to="/allResponces">
-            <strong>All Responces</strong>
+          <Link className = "linkInsideDropdown" to="/allResponses">
+            <strong>All Responses</strong>
           </Link>
           <Link
-            style={{ textDecoration: "none" }}
+           className = "linkInsideDropdown"
             onClick={this.logoutbtn}
             // activeClassName="logout"
             to="/"

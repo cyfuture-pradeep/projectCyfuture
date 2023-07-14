@@ -53,7 +53,7 @@ const PaperCreatedSuccessfully = (props) => {
             <div>
               {/* <div>
                 <Link onClick={onchangeHandler}>
-                  <Button>Save Another Responce</Button>
+                  <Button>Save Another Response</Button>
                 </Link>
               </div> */}
               ***** ******* ************ *****
