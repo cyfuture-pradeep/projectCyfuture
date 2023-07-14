@@ -145,22 +145,22 @@
 
 .dropdown_content {
   position: absolute;
-  top: 17%;
+  top: 19%;
   background-color: whitesmoke;
   transform: translateX(-100%);
   z-index: 999999999999999999999999;
   transition: 0.8s ease-in-out;
-  display: flex;
-  flex-direction: column;
 }
 
 .dropdown_Show {
+  display: flex;
+  flex-direction: column;
   transform: translateX(0%);
   transition: ease-in-out 0.7s;
 }
 
 .linkInsideDropdown{
-   padding: 10px;
+   padding: 5px;
    text-decoration: none;
 }
 /* Change color of dropdown links on hover */
