@@ -77,7 +77,7 @@ class CreateElement extends Component {
 
   updateNoOfSingleChoiceQuestion = () => {
     if (this.state.MultipleClicked || this.state.ParagraphClicked) {
-      alert("Please Done Your Previous Task First Then Come Back !!!!");
+      alert("Please complete Your Previous Task first, Then Come back.");
       return;
     }
     this.setState({
@@ -89,7 +89,7 @@ class CreateElement extends Component {
   };
   updateNoOfMultipleChoiceQuestion = () => {
     if (this.state.SingleClicked || this.state.ParagraphClicked) {
-      alert("Please Done Your Previous Task First Then Come Back !!!!");
+      alert("Please complete Your Previous Task first, Then Come back.");
       return;
     }
     this.setState({
@@ -101,7 +101,7 @@ class CreateElement extends Component {
   };
   updateNoOfParagraphQuestion = () => {
     if (this.state.SingleClicked || this.state.MultipleClicked) {
-      alert("Please Done Your Previous Task First Then Come Back !!!!");
+      alert("Please complete Your Previous Task first, Then Come back.");
       return;
     }
     this.setState({
