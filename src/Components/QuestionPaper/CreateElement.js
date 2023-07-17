@@ -151,7 +151,7 @@ class CreateElement extends Component {
               this.props.history.push("/mainPage");
             }}
           >
-            <i class="fa fa-arrow-circle-left"></i>
+            <i class="fa fa-arrow-circle-left" color="red"></i>
           </div>
         </div>
 

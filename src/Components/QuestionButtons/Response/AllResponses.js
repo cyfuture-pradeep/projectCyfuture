@@ -75,7 +75,7 @@ class AllResponses extends Component {
             <div>
               <Link to="/SeePapersAndResponse">
                 {" "}
-                <i class="fa fa-arrow-circle-left"></i>
+                <i class="fa fa-arrow-circle-left" ></i>
               </Link>
             </div>
           </div>

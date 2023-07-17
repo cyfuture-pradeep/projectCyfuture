@@ -46,7 +46,7 @@ class AdminElement extends Component {
               this.props.history.push("/mainPage");
             }}
           >
-            <i class="fa fa-arrow-circle-left"></i>
+            <i class="fa fa-arrow-circle-left" style={{background : "red"}}></i>
           </div>
         </div>
 

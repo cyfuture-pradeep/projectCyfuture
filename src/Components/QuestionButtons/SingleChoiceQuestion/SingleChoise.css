@@ -130,7 +130,8 @@
 
 .show {
   visibility: visible;
-  background-color: rgba(160, 255, 113, 0.898);
+  background-color: #34a7e1;
+  /* background-color: rgba(160, 255, 113, 0.898); */
   transform: translateY(50%);
 }
 

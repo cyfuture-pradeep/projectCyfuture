@@ -12,8 +12,8 @@
   left: 0px;
   top: -35px;
   width: 100%;
-  height: 100vh;
-  background-color: #fff;
+  height: 103vh;
+  background-color: #19191e;
 }
 .html_admin {
   font-family: "Space Mono", monospace;
@@ -39,7 +39,8 @@
   padding: 9px;
   left: 0px;
   width: 100%;
-  background-color: rgb(202 255 90 / 58%);
+  background-color: #222;
+  box-shadow: 0 1px 4px 0px #5a4899
 }
 
 @media (max-width: 812px) {
@@ -54,7 +55,7 @@
   bottom: 0px;
   position: fixed;
   margin-top: 5px;
-  background-color: black;
+  background-color: #5a4899;
   color: white;
   font-size: 0.8rem;
   letter-spacing: 1.2px;
@@ -71,22 +72,27 @@
 }
 
 .btnGrd {
-  background: linear-gradient(to right, #ff4e50 0%, #f9d423 51%, #ff4e50 100%);
+  background-color: #19191e;
+  /* background-color: #fff; */
+  /* background: linear-gradient(to right, #ff4e50 0%, #f9d423 51%, #ff4e50 100%); */
   width: fit-content;
-}
-
-.btnGrd {
   margin: 10px;
   padding: 15px 12px;
   text-align: center;
-  width: fit-content;
   transition: 0.5s;
   font-size: 0.8rem;
   background-size: 200% auto;
   color: white;
   border-radius: 10px;
   display: block;
-  border-color: rgba(235, 25, 18, 0.493);
+
+  /* border-color: rgba(235, 25, 18, 0.493); */
+}
+.btnGrd:hover{
+  background-color: #5a4899;
+  color: white;
+  transform: scale(1.03);
+  transition: 0.3s ease-in-out;
 }
 
 @media (max-width: 538px) {
@@ -147,6 +153,7 @@
   position: absolute;
   top: 17%;
   background-color: whitesmoke;
+  /* background-color: #5a4899; */
   transform: translateX(-100%);
   z-index: 999999999999999999999999;
   transition: 0.8s ease-in-out;
@@ -177,6 +184,11 @@
   align-items: center;
   z-index: 99999999999999;
   width: 11%;
+}
+
+.icon_Color{
+  color : red;
+  background-color: red;
 }
 
 @media (max-width: 1233px) {
