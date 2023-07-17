@@ -130,7 +130,7 @@
 
 .show {
   visibility: visible;
-  background-color: #34a7e1;
+  background-color: #5a4899;
   /* background-color: rgba(160, 255, 113, 0.898); */
   transform: translateY(50%);
 }
@@ -284,7 +284,7 @@
 
 .Singles:hover {
   border-radius: 20px;
-  background-color: rgba(251, 222, 53, 0.728);
+  background-color: rgba(53, 251, 168, 0.728);
   box-shadow: 1px 1px 8px black;
 }
 
