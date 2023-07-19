@@ -1,0 +1,52 @@
+    /* https://papermaker-c81e4.web.app/GenerateLink/paper
+                  {props.RandomNo}/{props.userId} *
+                  {/* <div className="copiedLink">
+                 {copy}
+                 </div>
+                 <div>
+                <Button
+                  click={() => {
+                    navigator.clipboard.writeText(copy);
+                    setClicked(true);
+                  }}
+                >
+                  {!clicked ? "Copy To Clipbord" : "Copied"}
+                </Button>
+                </div>  */}
+      {/* </div> */}
+      {/* <div className="content">
+        <div className="data">
+          <p>{props.content}</p>
+          {props.content === "Your Paper is Created Successfully" ? (
+            <div>
+              <Link exact to="/createPapers">
+                <Button>Continue Creating</Button>
+              </Link>
+              <Link exact to="/allPapers">
+                <Button>See All Papers</Button>
+              </Link>
+              <div className="shareLink">
+                Share Link
+                <h2 className="href">
+                  {/* https://papermaker-c81e4.web.app/GenerateLink/paper
+                  {props.RandomNo}/{props.userId} */}
+                  {/* {copy}
+                </h2>
+                <Button
+                  click={() => {
+                    navigator.clipboard.writeText(copy);
+                    setClicked(true);
+                  }}
+                >
+                  {!clicked ? "Copy To Clipbord" : "Copied"}
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div>
+              ***** ******* ************ *****
+            </div>
+          )}
+        </div>
+      </div> */} 
+    {/* </div> */}
