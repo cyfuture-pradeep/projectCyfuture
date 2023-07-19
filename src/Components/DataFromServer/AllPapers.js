@@ -10,6 +10,8 @@ import DataFromAndToServer from "./DataFromAndToServer";
 import Spinner from "../Spinner/Spinner";
 import { Link, Redirect } from "react-router-dom";
 import { logout } from "../../store/store/actions/auth";
+import arrow from "../../Img/leftArrow.png";
+ 
 class AllQuestions extends Component {
   state = {
     PaperCollection: null,
@@ -36,14 +38,15 @@ class AllQuestions extends Component {
     this.props.logout();
   };
 
+
   render() {
     let Data = null;
     if (this.state.PaperCollection != null) {
       if (Object.keys(this.state.PaperCollection).length === 0) {
         // alert("You have not created any paper yet 😁😁");
         Data = (
-          <div style={{ position: "absolute", left: "32vw", top: "28%" }}>
-            You have not created any paper yet 😁😁
+          <div style={{ position: "absolute", left: "32vw", top: "28%" ,color : "white"}}>
+           you haven't created any paper yet
           </div>
         );
       } else {
@@ -78,9 +81,9 @@ class AllQuestions extends Component {
       <div>
         <div
           className="NavBar d-flex justify-content-between align-items-center"
-          style={{ padding: "9px" }}
+          style={{ padding: "22px" }}
         >
-          <div className="Icon_Container nav-item" style={{ left: "0px" }}>
+          <div className="Icon_Container nav-item" style={{ left: "0px",top : "23px" }}>
             <div class={`toggle ${this.state.toggle ? `change` : ``}`}>
               <div
                 onClick={() => this.setState({ toggle: !this.state.toggle })}
@@ -94,18 +97,18 @@ class AllQuestions extends Component {
             <div>
               <Link to="/mainPage">
                 {" "}
-                <i class="fa fa-arrow-circle-left"></i>
+                <img className="arrowIcon" src={arrow}></img>
               </Link>
             </div>
           </div>
-          <div className="nav-item">All Created Papers</div>
+          <div className="nav-item" style={{color : "white"}}>All Created Papers</div>
         </div>
 
         <div
           className={`dropdown_content ${
             this.state.toggle ? `dropdown_Show` : ``
           }`}
-          style={{ top: "6%", zIndex: "9999999999999" }}
+          style={{ top: "9.8%", zIndex: "9999999999999" }}
         >
           <Link className = "linkInsideDropdown" to="/createPapers">
             <strong>Create Paper</strong>

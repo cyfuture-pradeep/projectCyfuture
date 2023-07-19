@@ -7,7 +7,6 @@ import Spinner from "../../Components/Spinner/Spinner";
 import { NavLink, Link } from "react-router-dom";
 import LoginImg from "../../Img/LoginImg.jpg";
 import Sign_up from "./Sign_up";
-
 class Auth extends Component {
   state = {
     controls: {
@@ -128,6 +127,7 @@ class Auth extends Component {
     let form = formElementsArray.map((formElement) => (
       <Input
         key={formElement.id}
+        color = "black"
         elementType={formElement.config.elementType}
         elementConfig={formElement.config.elementConfig}
         value={formElement.config.value}
@@ -165,7 +165,7 @@ class Auth extends Component {
           <img src={LoginImg}></img>
         </div>
         <div className="Auth">
-          <h3 style={{ color: "black" }}>
+          <h3 style={{ color: "black" , backgroundColor : "transparent" }}>
             {" "}
             {this.state.isSignUp ? "Sign-Up" : "Log-In"}
           </h3>
@@ -193,7 +193,7 @@ class Auth extends Component {
       finalData = <Sign_up />;
     }
 
-    console.log(this.state.isSignUp , "From Auth.js")
+    // console.log(this.state.isSignUp , "From Auth.js")
     return <div>{finalData}</div>;
   }
 }

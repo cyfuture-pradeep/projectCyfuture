@@ -1,10 +1,12 @@
 .Button {
     border: none;
+    /* color: white; */
     color: black;
+    background-color: transparent;
     outline: none;
     width: 188px;
     cursor: pointer;
-    border: 1px solid green;
+    border: 1px solid #5a4899;
     border-radius: 15px;
     font: inherit;
     padding: 13px;

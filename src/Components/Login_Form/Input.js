@@ -9,6 +9,7 @@ const Input = (props) => {
     inputElement =
         <input className={`${cls} ${ props.touched && props.invalid ? "danger": ""}`}
         {...props.elementConfig}
+        style={{color : `${props.color}`}}
         onChange={(event) => props.changed(event, props.inputKey)}
         value={props.value} />
     return (

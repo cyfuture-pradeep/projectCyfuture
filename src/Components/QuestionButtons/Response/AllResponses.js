@@ -9,6 +9,8 @@ import {
 import Spinner from "../../Spinner/Spinner";
 import "./button.css";
 import ResponseFromServer from "./ResponseFromServer";
+import arrow from "../../../Img/leftArrow.png"
+
 class AllResponses extends Component {
   state = {
     ResponseCollection: null,
@@ -36,8 +38,8 @@ class AllResponses extends Component {
       if (Object.keys(this.state.ResponseCollection).length === 0) {
         // alert("No Response yet 😁😁");
         Data = (
-          <div style={{ position: "absolute", left: "32vw", top: "28%" }}>
-            No Response yet 😔😔
+          <div style={{ position: "absolute", left: "32vw", top: "40vh",color : "white" }}>
+            No Response yet
           </div>
         );
       } else {
@@ -66,20 +68,23 @@ class AllResponses extends Component {
       finalData = <Spinner />;
     }
     return (
-      <div>
+      <div style={{height:"91.7vh",
+        background: "#19191e",
+        marginTop: "-6%"
+    }}>
         <div
           className="NavBar d-flex justify-content-between align-items-center"
-          style={{ padding: "9px" }}
+          style={{ padding: "22px" }}
         >
-          <div className="Icon_Container nav-item" style={{ left: "0px" }}>
+          <div className="Icon_Container nav-item" style={{ left: "0px" , top : "23px" }}>
             <div>
               <Link to="/SeePapersAndResponse">
                 {" "}
-                <i class="fa fa-arrow-circle-left" ></i>
+                <img className="arrowIcon" src={arrow}></img>
               </Link>
             </div>
           </div>
-          <div className="nav-item">Responses</div>
+          <div className="nav-item" style={{color : "white"}}>Responses</div>
         </div>
         <div className="questionDiv">
           {finalData}

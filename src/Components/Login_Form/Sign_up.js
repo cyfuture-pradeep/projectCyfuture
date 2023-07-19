@@ -6,7 +6,6 @@ import * as actions from "../../store/store/actions/index";
 import Spinner from "../../Components/Spinner/Spinner";
 import Auth from "./Auth";
 import LoginImg from "../../Img/LoginImg.jpg";
-import { Redirect } from "react-router-dom";
 
 
 class Sign_up extends Component {
@@ -142,7 +141,7 @@ class Sign_up extends Component {
       }
       
       
-      console.log("button Clicked");
+      // console.log("button Clicked");
       this.props.onAuth(
         this.state.controls.email.value,
       this.state.controls.password.value,
@@ -168,6 +167,7 @@ class Sign_up extends Component {
     let form = formElementsArray.map((formElement) => (
       <Input
         key={formElement.id}
+        color = {"black"}
         elementType={formElement.config.elementType}
         elementConfig={formElement.config.elementConfig}
         value={formElement.config.value}

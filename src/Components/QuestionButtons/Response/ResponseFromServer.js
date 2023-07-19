@@ -7,7 +7,9 @@ import {
   Paper_is_creating,
 } from "../../../store/store/actions/auth";
 import SingleResponse from "./SingleResponse";
+import leftArrow from "../../../Img/leftArrow.png"
 import Spinner from "../../Spinner/Spinner";
+
 import { Link } from "react-router-dom";
 class ResponseFromServer extends Component {
   state = {
@@ -67,21 +69,21 @@ class ResponseFromServer extends Component {
 
     // return <div className="questionDiv">{finalData}</div>;
     return (
-      <div>
+      <div style={{backgroundColor : "#19191e" , height : "100vh" , marginTop : "-10%"}}>
         {" "}
         <div
           className="NavBar d-flex justify-content-between align-items-center"
-          style={{ padding: "9px" }}
+          style={{ padding: "26px" }}
         >
-          <div className="Icon_Container nav-item" style={{ left: "0px" }}>
+          <div className="Icon_Container nav-item" style={{ left: "0px",top : "28px" }}>
             <div>
               <Link to="/allResponses">
                 {" "}
-                <i class="fa fa-arrow-circle-left"></i>
+               <img src = {leftArrow} className="arrowIcon" />
               </Link>
             </div>
           </div>
-          <div className="nav-item">Responses</div>
+          <div className="nav-item" style={{color : "white"}}>Responses</div>
         </div>
         <div className="questionDiv">{finalData}</div>;
       </div>

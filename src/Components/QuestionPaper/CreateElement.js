@@ -17,7 +17,8 @@ import {
   logout,
   number,
 } from "../../store/store/actions/auth";
-import { Redirect, Link, useHistory } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+import arrow from "../../Img/leftArrow.png"
 
 class CreateElement extends Component {
   state = {
@@ -136,14 +137,14 @@ class CreateElement extends Component {
     let finalData = (
       <div className="boxH">
         <div className="Icon_Container">
-          <div class={`toggle ${this.state.toggle ? `change` : ``}`}>
+          <div className={`toggle ${this.state.toggle ? `change` : ``}`}>
             <div
               onClick={() => this.setState({ toggle: !this.state.toggle })}
               style={{ width: "fit-content" }}
             >
-              <div class="bar1"></div>
-              <div class="bar2"></div>
-              <div class="bar3"></div>
+              <div className="bar1"></div>
+              <div className="bar2"></div>
+              <div className="bar3"></div>
             </div>
           </div>
           <div
@@ -151,7 +152,8 @@ class CreateElement extends Component {
               this.props.history.push("/mainPage");
             }}
           >
-            <i class="fa fa-arrow-circle-left" color="red"></i>
+            {/* <i class="fa fa-arrow-circle-left" color="red"></i> */}
+            <img className="arrowIcon" src={arrow}></img>
           </div>
         </div>
 
@@ -231,15 +233,15 @@ class CreateElement extends Component {
             }
           />
         </div>
-
+       <div>
         {RecordeshowButton ? (
           <button onClick={this.updateMakePaper} className="makePaper">
             Make Paper
           </button>
         ) : null}
-
+         </div>
         <marquee className="msg">
-          Do not add <span> ? </span> mark at the end of the question
+          Do not add ? mark at the end of the question
         </marquee>
         {this.state.MakePaperClicked ? <Redirect exact to="/succfull" /> : null}
 

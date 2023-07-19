@@ -74,13 +74,13 @@ class StudentDetails extends Component {
       !this.state.saveClickedRedirect
     ) {
       let previousAns = [];
-      if (this.props.oldData !== null) {
-        Object.entries(this.props.oldData).map(([key, value], p) => {
-          if (key != "userId") {
-            previousAns = [...previousAns, value];
-          }
-        });
-      }
+      // if (this.props.oldData !== null) {
+      //   Object.entries(this.props.oldData).map(([key, value], p) => {
+      //     if (key != "userId") {
+      //       previousAns = [...previousAns, value];
+      //     }
+      //   });
+      // }
       let StudentDetailse = {
         Response: this.props.details,
         contact: {
@@ -90,12 +90,13 @@ class StudentDetails extends Component {
         },
       };
 
-      for (let h = 0; h < previousAns.length; h++) {
-        axios.post(
-          "/Responses/ResponseOf" + this.props.paperId + ".json",
-          previousAns[h]
-        );
-      }
+      // for (let h = 0; h < previousAns.length; h++) {
+      //   axios.post(
+      //     "/Responses/ResponseOf" + this.props.paperId + ".json",
+      //     previousAns[h]
+      //   );
+      // }
+      
       axios
         .post(
           "/Responses/ResponseOf" + this.props.paperId + ".json",
@@ -187,12 +188,13 @@ class StudentDetails extends Component {
     let form = formElementsArray.map((formElement) => (
       <Input
         key={formElement.id}
+        color = "white"
         elementType={formElement.config.elementType}
         elementConfig={formElement.config.elementConfig}
         value={formElement.config.value}
         invalid={!formElement.config.valid}
         shouldValidate={formElement.config.validation}
-        touched={formElement.config.touched}
+        // touched={formElement.config.touched}
         changed={(event) => this.inputChangedHandler(event, formElement.id)}
       />
     ));
@@ -208,6 +210,7 @@ class StudentDetails extends Component {
         <form>
           {form}
           <Button
+          color = {"white"}
             click={this.submitHandler}
             disabled={!this.state.isAllFieldsAreValid}
           >

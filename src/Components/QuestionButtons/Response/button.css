@@ -17,14 +17,14 @@
   background-color: #fff;
 }
 .container_AllPaper {
-  padding: 30px;
-  background-color: #cabaa4;
+  /* padding: 30px; */
+  background-color: #19191e;
   -ms-flex-align: center;
   align-items: center;
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  overflow: scroll;
+  /* overflow: scroll; */
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -38,7 +38,7 @@
   color: black;
   top: 0px;
   width: 75%;
-  border: 3px solid rgba(176, 255, 4, 0.58);
+  /* border: 3px solid #5a4299; */
   padding: 18px;
   -webkit-box-shadow: 1px 1px 15px black;
   box-shadow: 1px 1px 15px black;
@@ -58,23 +58,27 @@
   padding: 10px;
   width: 100%;
   font-size: 1.4rem;
-  border: 0.7px solid rgb(202 255 90 / 58%);
-  box-shadow: 1px 1px 20px rgba(217, 255, 134, 0.809);
+  border: 0.7px solid #5a4299;
+  box-shadow: 1px 1px 20px #19191e;
   margin-top: 30px;
   display: flex;
   align-items: flex-start;
   cursor: pointer;
   transition: 0.5s linear;
+  background-color: transparent;
+  color: white;
 }
 
 .button_response:hover {
-  background-color: rgba(28, 247, 28, 0.455);
+  background-color: #5a4299;
+  color: white;
 }
 
 .userDetails,
 .dataValue {
   padding: 23px;
   font-size: 1.2rem;
+  color: white;
   width: max-content;
   margin: auto;
 }
@@ -96,7 +100,7 @@
 .buttonCopy {
   display: inline-block;
   border-radius: 17px;
-  background-color: rgb(229 48 48 / 80%);
+  background-color:#5a4299;
   border: none;
   color: #ffffff;
   text-align: center;
@@ -119,7 +123,7 @@
 }
 
 .buttonCopy:hover {
-  background-color: red;
+  background-color: #200467;
   font-size: white;
 }
 

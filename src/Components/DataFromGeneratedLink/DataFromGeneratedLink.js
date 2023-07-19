@@ -7,7 +7,7 @@ import {
   Paper_is_creating_2,
 } from "../../store/store/actions/auth";
 import StudentDetailse from "../DataFromServer/StudentDetailse";
-import "../QuestionButtons/SingleChoiceQuestion/SingleChoise.css";
+import "./DataFromGeneratedLink.css";
 import Spinner from "../Spinner/Spinner";
 import Opps from "./opps";
 class DataFromGeneratedLink extends Component {
@@ -124,15 +124,15 @@ class DataFromGeneratedLink extends Component {
 
   PostResponseToServer = () => {
     this.props.onCreating_2();
-    axios
-      .get("/Responses/ResponseOf" + this.props.match.params.id + ".json")
-      .then((res) => {
-        if (res.data !== null) this.setState({ oldData: res.data });
-      })
-      .catch((err) => alert(err));
+    // axios
+    //   .get("/Responses/ResponseOf" + this.props.match.params.id + ".json")
+    //   .then((res) => {
+    //     if (res.data !== null) this.setState({ oldData: res.data });
+    //   })
+    //   .catch((err) => alert(err));
 
     axios
-      .put("/Responses/ResponseOf" + this.props.match.params.id + ".json", {
+      .patch("/Responses/ResponseOf" + this.props.match.params.id + ".json", {
         userId: this.props.match.params.userId,
       })
       .then((res) => {
@@ -202,7 +202,7 @@ class DataFromGeneratedLink extends Component {
               option = (
                 <textarea
                   placeholder="Enter Your Answer"
-                  style={{ resize: "none", marginTop: "13px", outline: "none" }}
+                 className="textArea"
                   cols="20"
                   rows="5"
                   name={i + 1}
@@ -221,30 +221,21 @@ class DataFromGeneratedLink extends Component {
                   className={`heading ${
                     i === 0 ? "showHeading" : "hideHeading"
                   }`}
-                  style={{ top: "0px" }}
+                  style={{ top: "0px", marginTop : "0px" }}
                 >
                   {QuestionTypeDiscription}
                 </p>
-                <div
-                  style={{
-                    backgroundColor: `${
-                      (i + 1) % 2 === 0 ? "#8c00ff0a" : "#f7ff3d33"
-                    }`,
-                  }}
-                  key={i}
+                {i === 0 ? <hr className="lineBelowHeading" style={{height : "1px"}} /> : null }
+                <div key={i}
                 >
-                  <div className="singleChoiseQuestion sin">
+                  <div className="singlechoiceQuestion sin">
                     <div style={{ display: "flex" }}>
-                      <span style={{ display: "inlineBlock" }}>
+                      <span style={{ display: "inlineBlock" ,color : "white" }}>
                         Question:{l}
                       </span>
                       <span className="Question" id={i}>
                         {QuestionData[0]} ?
-                        <div
-                          style={{
-                            display: "flex",
-                            minWidth: "420px",
-                          }}
+                        <div className="optionDetailsWithResponse"
                         >
                           <div
                             className="finalOption"
@@ -305,7 +296,7 @@ class DataFromGeneratedLink extends Component {
     }
 
     let finalData = (
-      <div>
+      <div  className="fullpage">
         {this.state.SubmitClicked ? (
           <div>
             <StudentDetailse
@@ -321,7 +312,7 @@ class DataFromGeneratedLink extends Component {
         )}
         {!this.state.SubmitClicked ? (
           <button
-            className={"submitQuestionPaper"}
+            className="submitQuestionPaper"
             onClick={this.PostResponseToServer}
           >
             Submit

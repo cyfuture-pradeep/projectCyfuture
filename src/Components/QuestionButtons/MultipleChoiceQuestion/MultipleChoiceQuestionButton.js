@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "../SingleChoiceQuestion/SingleChoise.css";
+import "../SingleChoiceQuestion/Singlechoice.css";
 import axios from "../../../axios/axios";
 import { UpdateMultipleChoiceQuestion } from "../../../store/store/actions";
 import { connect } from "react-redux";
 class MultipleChoiceQuestion extends Component {
   state = {
-    isChoise: false,
+    ischoice: false,
     inputValue: "",
     isInputDone: false,
     options: [],
@@ -27,11 +27,11 @@ class MultipleChoiceQuestion extends Component {
   //      return !(this.props.data.MakePaperClicked === newProps.data.MakePaperClicked);
   // }
 
-  addChoises = () => {
-    this.setState({ isChoise: true, PreviewShow: false });
+  addchoices = () => {
+    this.setState({ ischoice: true, PreviewShow: false });
   };
 
-  // delChoises = () => {
+  // delchoices = () => {
   //     if (this.state.options.length === 0)
   //         this.setState({isDeleteVisible:false})
   //     else
@@ -56,7 +56,7 @@ class MultipleChoiceQuestion extends Component {
   //     }
   // }
 
-  delChoises = () => {
+  delchoices = () => {
     let temp = [];
     if (this.state.options.length === 0)
       this.setState({ isDeleteVisible: false });
@@ -92,7 +92,7 @@ class MultipleChoiceQuestion extends Component {
     let newOptions = [...this.state.options, newOption];
     this.setState({
       options: newOptions,
-      isChoise: false,
+      ischoice: false,
       PreviewShow: true,
       inputValue: "",
     });
@@ -168,7 +168,7 @@ class MultipleChoiceQuestion extends Component {
       final: newData,
       PreviewShow: false,
       isInputDone: true,
-      isChoise: false,
+      ischoice: false,
       options: [],
       isPreviewClicked: false,
       inputQuestion: "",
@@ -182,7 +182,7 @@ class MultipleChoiceQuestion extends Component {
     this.setState({
       PreviewShow: false,
       isInputDone: true,
-      isChoise: false,
+      ischoice: false,
       edit: false,
       options: [],
       isPreviewClicked: false,
@@ -251,7 +251,7 @@ class MultipleChoiceQuestion extends Component {
       edit: false,
       PreviewShow: false,
       isInputDone: true,
-      isChoise: false,
+      ischoice: false,
       options: [],
       isPreviewClicked: false,
       inputQuestion: "",
@@ -268,10 +268,10 @@ class MultipleChoiceQuestion extends Component {
         .catch((err) => alert(err));
     }
 
-    let choise = null;
+    let choice = null;
 
-    if (this.state.isChoise) {
-      choise = (
+    if (this.state.ischoice) {
+      choice = (
         <div>
           <input
             placeholder="Add Options"
@@ -302,7 +302,7 @@ class MultipleChoiceQuestion extends Component {
               onClick={(e) => this.Checked({ e: e, idf: i })}
               className="Radio"
             />
-            <span>{itr[0]}</span>
+            <span style={{color : "wheat"}}>{itr[0]}</span>
           </div>
         );
       });
@@ -334,29 +334,26 @@ class MultipleChoiceQuestion extends Component {
         });
         return (
           <div
-            style={{
-              backgroundColor:
-                (this.props.noOfQues + i + 1) % 2 === 0
-                  ? "#8c00ff0a"
-                  : "#f7ff3d33",
-            }}
+            // style={{
+            //   backgroundColor:
+            //     (this.props.noOfQues + i + 1) % 2 === 0
+            //       ? "#8c00ff0a"
+            //       : "#f7ff3d33",
+            // }}
           >
             <p className={`heading ${i === 0 ? "showHeading" : "hideHeading"}`}>
               Multiple Choice Questions
             </p>
-            <div className="singleChoiseQuestion sin" key={i}>
+            {i === 0 ? <hr className="lineBelowHeading" /> : null }
+            <div className="singlechoiceQuestion sin" key={i}>
               <div style={{ display: "flex" }}>
-                <span style={{ display: "inlineBlock" }}>
+                <span style={{ display: "inlineBlock",color : "white" }}>
                   Question:{this.props.noOfQues + i + 1}
                 </span>
                 <span className="Question" id={i}>
                   {singleObject.Question} ?
-                  <div
-                    style={{
-                      display: "flex",
-                      minWidth: "420px",
-                    }}
-                  >
+                  <div className="optionDetailsWithResponse"
+                        >
                     <div
                       className="finalOption"
                       style={{ width: "-webkit-fill-available" }}
@@ -409,7 +406,7 @@ class MultipleChoiceQuestion extends Component {
     if (this.state.edit) {
       editContent = (
         <div className={`Singles ${this.state.edit ? "show" : "hide"}`}>
-          <p className="QuestionType">Multiple Choise Question</p>
+          <p className="QuestionType">Multiple choice Question</p>
           <input
             className="input"
             type="text"
@@ -418,12 +415,12 @@ class MultipleChoiceQuestion extends Component {
             value={this.state.inputQuestion}
           />
           <div className="Btn">
-            <button onClick={this.addChoises} className="add">
+            <button onClick={this.addchoices} className="add">
               Add Option
             </button>
             <button
               onClick={(e) =>
-                this.delChoises({ event: e, idx: this.state.editedData.idxx })
+                this.delchoices({ event: e, idx: this.state.editedData.idxx })
               }
               className="delete"
               style={{
@@ -451,7 +448,7 @@ class MultipleChoiceQuestion extends Component {
                CANCEL
             </button>
           </div>
-          {choise}
+          {choice}
           {preView}
         </div>
       );
@@ -465,7 +462,7 @@ class MultipleChoiceQuestion extends Component {
     return (
       <div style={style}>
         <div className={`Singles ${this.props.isClicked ? "show" : "hide"}`}>
-          <p className="QuestionType">Multiple Choise Question</p>
+          <p className="QuestionType">Multiple choice Question</p>
           <input
             className="input"
             type="text"
@@ -474,11 +471,11 @@ class MultipleChoiceQuestion extends Component {
             value={this.state.inputQuestion}
           />
           <div className="Btn">
-            <button onClick={this.addChoises} className="add">
+            <button onClick={this.addchoices} className="add">
               Add Option
             </button>
             <button
-              onClick={this.delChoises}
+              onClick={this.delchoices}
               className="delete"
               style={{
                 display: this.state.isPreviewClicked ? "block" : "none",
@@ -503,7 +500,7 @@ class MultipleChoiceQuestion extends Component {
                CANCEL
             </button>
           </div>
-          {choise}
+          {choice}
           {preView}
         </div>
         {editContent}

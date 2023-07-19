@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import "./MakeSuccessfully.css";
-import Button from "../Button/Button";
+import greenTick from "../../Img/whiteTick.png";
+ 
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
@@ -9,8 +10,7 @@ import { useHistory } from "react-router-dom";
 const PaperCreatedSuccessfully = (props) => {
   const history = useHistory();
   const [copy, setCopy] =
-    useState(`https://cyfproject2023.web.app/GenerateLink/paper
-                  ${props.RandomNo}/${props.userId}`);
+    useState(`https://cyfproject2023.web.app/GenerateLink/paper${props.RandomNo}/${props.userId}`);
 
   const [clicked, setClicked] = useState(false);
 
@@ -21,47 +21,45 @@ const PaperCreatedSuccessfully = (props) => {
   // };
   return (
     <div className="container_successfull">
-      <div className="content">
-        <div className="data">
-          <p>{props.content}</p>
+      <div className="succMessage">
+         <img src={greenTick} className="greenTick"></img>
+         <p>{props.content}</p>
+    <div className="content">
           {props.content === "Your Paper is Created Successfully" ? (
             <div>
               <Link exact to="/createPapers">
-                <Button>Continue Creating</Button>
+                <button className="btnInSuccess">Continue Creating</button>
               </Link>
               <Link exact to="/allPapers">
-                <Button>See All Papers</Button>
+                <button className="btnInSuccess">See All Papers</button>
               </Link>
               <div className="shareLink">
                 Share Link
-                <h2 className="href">
+                <p className="href">
                   {/* https://papermaker-c81e4.web.app/GenerateLink/paper
                   {props.RandomNo}/{props.userId} */}
-                  {copy}
-                </h2>
-                <Button
-                  click={() => {
+                  {`https://cyfproject2023.web.app/GenerateLink/
+                  paper${props.RandomNo}/${props.userId}`}
+                </p>
+                <button className="btnInSuccess"
+                  onClick={() => {
                     navigator.clipboard.writeText(copy);
                     setClicked(true);
                   }}
                 >
                   {!clicked ? "Copy To Clipbord" : "Copied"}
-                </Button>
+                </button>
               </div>
             </div>
           ) : (
             <div>
-              {/* <div>
-                <Link onClick={onchangeHandler}>
-                  <Button>Save Another Response</Button>
-                </Link>
-              </div> */}
               ***** ******* ************ *****
             </div>
           )}
-        </div>
+    
       </div>
-    </div>
+      </div>
+ </div> 
   );
 };
 

@@ -7,9 +7,10 @@ import {
   Paper_is_creating_2,
 } from "../../store/store/actions/auth";
 import StudentDetailse from "./StudentDetailse";
-import "../QuestionButtons/SingleChoiceQuestion/SingleChoise.css";
+import "../QuestionButtons/SingleChoiceQuestion/Singlechoice.css";
 import Spinner from "../Spinner/Spinner";
-import { Button } from "reactstrap";
+import leftArrow from"../../Img/leftArrow.png"
+// import { Button } from "reactstrap";
 class DataFromAndToServer extends Component {
   state = {
     final: [],
@@ -203,7 +204,7 @@ class DataFromAndToServer extends Component {
               option = (
                 <textarea
                   placeholder="Enter Your Answer"
-                  style={{ resize: "none", marginTop: "13px", outline: "none" }}
+                  className="textArea"
                   cols="20"
                   rows="5"
                   name={i + 1}
@@ -225,26 +226,23 @@ class DataFromAndToServer extends Component {
                 >
                   {QuestionTypeDiscription}
                 </p>
+                {i === 0 ? <hr className="lineBelowHeading" /> : null }
                 <div
-                  style={{
-                    backgroundColor: `${
-                      (i + 1) % 2 === 0 ? "#8c00ff0a" : "#f7ff3d33"
-                    }`,
-                  }}
+                  // style={{
+                  //   backgroundColor: `${
+                  //     (i + 1) % 2 === 0 ? "#8c00ff0a" : "#f7ff3d33"
+                  //   }`,
+                  // }}
                   key={i}
                 >
-                  <div className="singleChoiseQuestion sin">
+                  <div className="singlechoiceQuestion sin">
                     <div style={{ display: "flex" }}>
-                      <span style={{ display: "inlineBlock" }}>
+                      <span style={{ display: "inlineBlock",color : "white" }}>
                         Question:{l}{" "}
                       </span>
                       <span className="Question" id={i}>
                         {QuestionData[0]} ?
-                        <div
-                          style={{
-                            display: "flex",
-                            minWidth: "420px",
-                          }}
+                        <div className="optionDetailsWithResponse"
                         >
                           <div
                             className="finalOption"
@@ -337,27 +335,27 @@ class DataFromAndToServer extends Component {
 
     // return <div className="widthSetter">{finalData}</div>;
     return (
-      <div>
+      <div style={{backgroundColor:"#19191e" , marginTop : "-23px" , minHeight : "103vh"}}>
         <div
           className="NavBar d-flex justify-content-between align-items-center"
-          style={{ padding: "13px" }}
+           
         >
           <div className="Icon_Container nav-item" style={{ left: "0px" }}>
             <div onClick={this.changeHandler}>
               <Link to="/allPapers">
                 {" "}
-                <i class="fa fa-arrow-circle-left"></i>
+                <img className="arrowIcon" src={leftArrow} />
               </Link>
             </div>
           </div>
         </div>
         <div className="widthSetter">{finalData}</div>
         {!this.state.clicked ? (
-          <div style={{ position: "absolute" }}>
+          <div style={{ position: "absolute",backgroundColor : "#19191e",width : "-webkit-fill-available" }}>
             <i>
               <small
                 style={{
-                  color: "green",
+                  color: "#5a4299",
                   fontSize: "small",
                   fontWeight: "bolder",
                 }}

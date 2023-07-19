@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../SingleChoiceQuestion/SingleChoise.css";
+import "../SingleChoiceQuestion/Singlechoice.css";
 import axios from "../../../axios/axios";
 import { UpdateParagephChoiceQuestion } from "../../../store/store/actions";
 import { connect } from "react-redux";
@@ -146,12 +146,12 @@ class ParagraphQuestion extends Component {
         return (
           <div
             key={i}
-            style={{
-              backgroundColor:
-                (this.props.noOfQues + i + 1) % 2 === 0
-                  ? "#8c00ff0a"
-                  : "#f7ff3d33",
-            }}
+            // style={{
+            //   backgroundColor:
+            //     (this.props.noOfQues + i + 1) % 2 === 0
+            //       ? "#8c00ff0a"
+            //       : "#f7ff3d33",
+            // }}
           >
             <p
               className={[
@@ -161,15 +161,16 @@ class ParagraphQuestion extends Component {
             >
               Paragraph Type Questions
             </p>
-            <div className={"singleChoiseQuestion"}>
-              <div style={{ display: "flex" }}>
-                <div>Question:{this.props.noOfQues + i + 1} </div>
+            {i === 0 ? <hr className="lineBelowHeading" /> : null }
+            <div className={"singlechoiceQuestion"}>
+              <div style={{ display: "flex"}}>
+                <div style={{color : "white"}}>Question:{this.props.noOfQues + i + 1} </div>
                 <div className={"Question"} id={i}>
                   {singleObject.Question} ?
                   <div>
                     <textarea
                       placeholder="Enter Your Answer"
-                      style={{ resize: "none", marginTop: "16px" }}
+                      className="textArea"
                       cols="20"
                       rows="5"
                       onChange={(e) =>

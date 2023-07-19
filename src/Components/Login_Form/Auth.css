@@ -22,7 +22,9 @@
   text-align: center;
   padding: 48px;
   z-index: 1000;
-  background-color: rgb(202 226 254);
+  /* background-color: rgb(202 226 254); */
+  background-color: transparent;
+  border: 2px solid #5a4899;
   border-radius: 20px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -95,6 +97,11 @@
 .form {
   text-align: center;
   width: 100%;
+  background-color: transparent;
+}
+
+.button_cont{
+  background-color: transparent;
 }
 
 .mainContiner {
@@ -120,6 +127,7 @@
   .img {
     width: 100vw;
     text-align: center;
+    background-color: transparent;
   }
   .Auth {
     width: 400px;
@@ -194,6 +202,7 @@
   margin-bottom: 30px;
   border: none;
   border: 1px solid green;
+  background-color: transparent;
   font-size: 1rem;
   border-radius: 5px;
 }

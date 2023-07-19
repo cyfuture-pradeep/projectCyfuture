@@ -12,7 +12,7 @@
   left: 0px;
   top: -35px;
   width: 100%;
-  height: 103vh;
+  height: 104.7vh;
   background-color: #19191e;
 }
 .html_admin {
@@ -61,10 +61,10 @@
   letter-spacing: 1.2px;
   word-spacing: 0.7px;
 }
-
-.msg span {
-  color: yellow;
-}
+/* 
+/* .msg span {
+  background-color: yellow;
+} */ */
 
 .question_Content {
   position: relative;
@@ -116,24 +116,23 @@
 
 .makePaper {
   padding: 10px;
-  margin: auto;
-  font-weight: bold;
+  font-weight:400;
   margin-left: 43%;
   border-radius: 10px;
-  outline: 1px solid #18ed18;
+  outline: 1px solid #5a4899;
   border: none;
-  top: 25px;
-  margin-top: 10px;
+  /* top: 25px; */
+  color: #808191;
+  background-color: transparent;
+  margin-top: 28px;
   margin-bottom: 31px;
 }
 
 .makePaper:hover {
   color: white;
+  background-color: #5a4899;
 }
 
-.makePaper:hover {
-  background-color: rgb(13, 251, 40);
-}
 
 /* ************************************************ */
 
@@ -152,7 +151,7 @@
 .dropdown_content {
   position: absolute;
   top: 17%;
-  background-color: whitesmoke;
+  background-color: #222222;
   /* background-color: #5a4899; */
   transform: translateX(-100%);
   z-index: 999999999999999999999999;
@@ -162,6 +161,7 @@
 }
 
 .dropdown_Show {
+  /* top: 9%; */
   transform: translateX(0%);
   transition: ease-in-out 0.7s;
 }
@@ -169,17 +169,32 @@
 .linkInsideDropdown{
    padding: 10px;
    text-decoration: none;
+  }
+
+.linkInsideDropdown:hover{
+  background-color: #5a4899;
+  }
+
+
+  
+  .dropdown_content strong{
+    background-color: transparent;
+    color: white;
+    padding: inherit;
 }
 /* Change color of dropdown links on hover */
 .dropdown_content strong:hover {
-  background-color: #ddd;
+  
+  color: white;
   /* transition: ease; */
 }
 
 .Icon_Container {
-  position: absolute;
+  /* position: absolute; */
+  /* top: 8%; */
+  position: fixed;
+  top: 5%;
   display: flex;
-  top: 8%;
   justify-content: space-around;
   align-items: center;
   z-index: 99999999999999;
@@ -191,11 +206,11 @@
   background-color: red;
 }
 
-@media (max-width: 1233px) {
+/* @media (max-width: 1233px) {
   .Icon_Container {
-    top: 11%;
+    top: 27%;
   }
-}
+} */
 
 .toggle {
   display: inline-block;
@@ -207,7 +222,7 @@
 .bar3 {
   width: 31px;
   height: 2px;
-  background-color: #333131;
+  background-color: #5a4899;
   margin: 6px 15px;
   transition: 0.4s;
 }
@@ -230,10 +245,20 @@
 }
 
 .boxH {
+  background-color: #19191e;
 }
 
 @media (max-width: 540px) {
   .boxH {
     width: fit-content;
   }
+}
+
+.arrowIcon{
+  width: 2.15vw;
+}
+
+.arrowIcon:hover{
+  transition:linear 50ms;
+  transform: scale(1.4);
 }

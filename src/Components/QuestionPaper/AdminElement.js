@@ -4,6 +4,8 @@ import AllQuestions from "../DataFromServer/AllPapers";
 import AllResponses from "../QuestionButtons/Response/AllResponses"
 import * as actions from "../../store/store/actions/index";
 import { Link, NavLink, Route } from "react-router-dom";
+import arrow from "../../Img/leftArrow.png"
+
 import { connect } from "react-redux";
 class AdminElement extends Component {
   state = {
@@ -46,7 +48,7 @@ class AdminElement extends Component {
               this.props.history.push("/mainPage");
             }}
           >
-            <i class="fa fa-arrow-circle-left" style={{background : "red"}}></i>
+             <img className="arrowIcon" src={arrow}></img>
           </div>
         </div>
 

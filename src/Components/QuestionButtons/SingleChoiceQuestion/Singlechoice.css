@@ -1,6 +1,5 @@
 * {
   /* text-transform:capitalize; */
-  color: black;
   font-size: large;
 }
 .allPapers {
@@ -9,14 +8,14 @@
   color: black;
 }
 
-.choise {
+.choice {
   display: list-item;
 }
 
 .heading {
-  background-color: rgba(135, 207, 235, 0.734);
+  background-color: #19191e;
   box-sizing: border-box;
-  color: black;
+  color: white;
   padding: 21px;
   font-size: larger;
   font-weight: bolder;
@@ -24,14 +23,19 @@
   text-align: center;
   height: auto;
   position: relative;
-  margin: 0;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
   transition: all 1s ease-in-out;
 }
 
 .hideHeading {
   display: none;
   transform: translateX(-110%);
+}
+
+.lineBelowHeading{
+  width: 80vw;
+  background-color: #20d2a8;
+  height: 4px;
 }
 
 .showHeading {
@@ -130,24 +134,27 @@
 
 .show {
   visibility: visible;
-  background-color: #5a4899;
+  background-color: #19191e;
   /* background-color: rgba(160, 255, 113, 0.898); */
   transform: translateY(50%);
+  border: 1px solid #5a4899;
 }
 
 .QuestionType {
-  color: black;
+  color: white;
   font-size: large;
+  font-weight: bold;
   margin-top: 0;
 }
 
 .Question {
   margin-bottom: 9px;
   margin-left: 40px;
+  color: white;
 }
 
-.singleChoiseQuestion {
-  margin-left: 10px;
+.singlechoiceQuestion {
+  /* margin-left: 10px; */
   padding: 32px;
   display: flex;
   text-align: -webkit-auto;
@@ -155,6 +162,24 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.122);
+}
+
+.optionDetailsWithResponse{
+  display: flex;
+  margin-top: 23px;
+  min-width: 420px;
+}
+
+.textArea{
+   resize: none;
+    background-color: transparent;
+    margin-top: 16px;
+    border: 1px solid #5a4899;
+    outline: none;
+    color: white;
+    font-size: 0.93rem;
+    min-width: 40vw;
+    padding: 10px;
 }
 
 @media (max-width: 839px) {
@@ -166,7 +191,7 @@
   }
 }
 @media (max-width: 612px) {
-  .singleChoiseQuestion {
+  .singlechoiceQuestion {
     display: block;
   }
   .editeDeleteSection {
@@ -180,18 +205,25 @@
 }
 
 .edit {
-  background: rgb(162 211 53 / 81%);
+  background: transparent;
   border: none;
   padding: 5px;
   border-radius: 5px;
   margin: 10px 5px 10px 5px;
   font-size: medium;
+  color: white;
+  border: 1px dashed greenyellow;
+}
+
+.edit:hover{
+  border: 1px solid greenyellow;
 }
 
 .deletee {
-  background: #fb9b9b;
-  font-size: medium;
-  border: none;
+  background: transparent;
+  font-size: smaller;
+ border: 1px solid red;
+ color: white;
   padding: 5px;
   border-radius: 5px;
   margin: 7px 0px 0px 2p;
@@ -199,6 +231,7 @@
 
 .editDeleteSection {
   margin-left: 30px;
+  min-width: fit-content;
 }
 
 .cancel {
@@ -206,7 +239,10 @@
   margin: 2px;
   outline: 1px solid rgb(247, 62, 62);
   border-radius: 2px;
-  color: rgb(247, 45, 45);
+  /* color: rgb(247, 45, 45); */
+  background-color: transparent;
+  border: 1px solid red;
+  color: #808191;
 }
 
 .cancel:hover {
@@ -216,57 +252,64 @@
 }
 
 .add {
-  color: rgb(120, 2, 128);
-  outline: 1px solid rgb(110, 224, 17);
+  color: #808191;
+  background-color: transparent;
+  outline: 1px solid rgb(253, 70, 253);
 }
 
 .add:hover {
-  background-color: rgba(42, 255, 138, 0.857);
+  background-color: rgba(200, 52, 214, 0.532);
   box-shadow: 1px 1px 5px black;
   color: white;
 }
 
 .save {
-  color: rgb(65 24 227);
+  color: #808191;
+  background-color: transparent;
   outline: 1px solid rgb(65 24 227);
 }
 
 .save:hover {
-  background-color: rgb(65 24 227);
+  /* background-color: rgb(65 24 227); */
   box-shadow: 1px 1px 5px black;
   color: white;
 }
 
 .delete {
-  color: chocolate;
+  color: #808191;
+  background-color: transparent;
   outline: 1px solid chocolate;
 }
 
 .delete:hover {
-  background-color: rgb(145, 114, 14);
+  /* background-color: rgb(145, 114, 14); */
   box-shadow: 1px 1px 5px black;
   color: white;
 }
 
 .preView {
-  color: rgb(250, 51, 150);
+  background-color: transparent;
+  color: #808191;
   outline: 1px solid rgb(250, 70, 160);
 }
 
 .preView:hover {
-  background-color: rgb(247, 3, 222);
+  /* background-color: rgb(247, 3, 222); */
   box-shadow: 1px 1px 5px black;
   color: white;
 }
 
 .submit {
-  color: darkgreen;
-  outline: 1px solid rgb(89, 206, 89);
+  /* color: darkgreen; */
+  color: #808191;
+  background-color: transparent;
+  outline: 1px solid rgb(41, 249, 41);
 }
 
 .submit:hover {
-  background-color: rgb(77, 138, 41);
-  box-shadow: 1px 1px 5px black;
+  /* background-color: rgb(77, 138, 41); */
+  outline: 1px solid rgb(153, 250, 153);
+  /* box-shadow: 1px 1px 5px black; */
   color: white;
 }
 
@@ -284,7 +327,7 @@
 
 .Singles:hover {
   border-radius: 20px;
-  background-color: rgba(53, 251, 168, 0.728);
+  /* background-color: rgba(53, 251, 168, 0.728); */
   box-shadow: 1px 1px 8px black;
 }
 
@@ -296,7 +339,10 @@
   width: 100%;
   align-items: center;
   font-size: 1rem;
+  color: white;
   text-transform: capitalize;
+  background-color: transparent;
+  border: 1px solid #808191;
 }
 
 .input:hover {
@@ -321,14 +367,15 @@
 .finalOption {
   padding: 5px;
   margin-left: 3px;
+  color: #808191;
   /* width: -webkit-fill-available */
 }
 
 .response {
   width: fit-content;
   padding: 9px;
-  background-color: #00ffff1f;
-  color: black;
+  background-color: #5a4899;
+  color: #ffe1c2;
   margin: auto;
   position: relative;
   width: "-webkit-fill-available";
@@ -336,7 +383,9 @@
 
 .submitQuestionPaper {
   width: fit-content;
-  border: 1px solid orange;
+  background-color: transparent;
+  border: 1px solid #5a4899;
+  color: #808191;
   padding: 6px;
   font-size: 1rem;
   position: relative;
@@ -348,13 +397,15 @@
 }
 
 .submitQuestionPaper:hover {
-  background-color: orange;
-  color: black;
+  background-color: #5a4899;
+  color: white;
   border-radius: 7px;
 }
 
+
 .editeDeleteSection {
   margin-left: 4%;
+  min-width: fit-content;
 }
 
 @media (max-width: 635px) {
@@ -364,10 +415,15 @@
 }
 
 .btnHandler {
-  margin-left: 8px;
-  background-color: #ffe1c2;
-  border: none;
+  margin-left: 40px;
+  color: white;
+  border: 1px solid #5a4899;
+  
   padding: 9px;
   font-size: initial;
   border-radius: 12px;
+}
+
+.btnHandler:hover{
+  background-color: #5a4899;
 }

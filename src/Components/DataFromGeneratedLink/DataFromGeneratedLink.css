@@ -1,0 +1,435 @@
+* {
+    /* text-transform:capitalize; */
+    /* background-color: #19191e; */
+    font-size: large;
+  }
+  .allPapers {
+    width: 100%;
+    height: 100%;
+    color: black;
+  }
+  
+  .choice {
+    display: list-item;
+  }
+  
+  .heading {
+    background-color: #19191e;
+    box-sizing: border-box;
+    color: white;
+    padding: 12px;
+    font-size: larger;
+    font-weight: bolder;
+    top: 26px;
+    text-align: center;
+    height: auto;
+    position: relative;
+    /* border-bottom: 1px solid black; */
+    transition: all 1s ease-in-out;
+  }
+  
+  .hideHeading {
+    display: none;
+    transform: translateX(-110%);
+  }
+  
+  .lineBelowHeading{
+    width: 80vw;
+    background-color: #20d2a8;
+    height: 4px;
+  }
+  
+  .showHeading {
+    display: block;
+  }
+  
+  .Singles {
+    position: fixed;
+    z-index: 500;
+    background-color: white;
+    width: fit-content;
+    box-shadow: 1px 1px 1px black;
+    text-align: center;
+    padding: 35px;
+    align-items: center;
+    left: 35%;
+    top: 7%;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
+    display: inline-block;
+  }
+  
+  @media (max-width: 1100px) {
+    .Singles {
+      left: 32%;
+    }
+  }
+  @media (max-width: 1000) {
+    .Singles {
+      left: 29%;
+    }
+  }
+  @media (max-width: 850px) {
+    .Singles {
+      left: 28%;
+    }
+  }
+  @media (max-width: 730px) {
+    .Singles {
+      left: 25%;
+    }
+  }
+  @media (max-width: 680px) {
+    .Singles {
+      left: 23%;
+    }
+  }
+  @media (max-width: 590px) {
+    .Singles {
+      left: 20%;
+    }
+  }
+  @media (max-width: 550px) {
+    .Singles {
+      left: 18%;
+    }
+  }
+  @media (max-width: 500px) {
+    .Singles {
+      left: 6%;
+    }
+  }
+  @media (max-width: 300px) {
+    .Singles {
+      width: 100vw;
+    }
+  }
+  /* @media (max-width: 300px) {
+    .Singles {
+      width: 100vw;
+    }
+  } */
+  
+  .previewOptions {
+    display: flow-root;
+    padding: 0px;
+    width: -moz-max-content;
+    width: max-content;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+    left: 35%;
+    margin-top: 6px;
+  }
+  
+  .previewOptions span {
+    margin-left: 5px;
+  }
+  
+  .hide {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+  
+  .show {
+    visibility: visible;
+    background-color: #19191e;
+    /* background-color: rgba(160, 255, 113, 0.898); */
+    transform: translateY(50%);
+    border: 1px solid #5a4899;
+  }
+  
+  .QuestionType {
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+  .Question {
+    margin-bottom: 9px;
+    margin-left: 40px;
+    color: white;
+  }
+  
+  .singlechoiceQuestion {
+    /* margin-left: 10px; */
+    padding: 32px;
+    display: flex;
+    text-align: -webkit-auto;
+    color: black;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.122);
+  }
+  
+  .optionDetailsWithResponse{
+    display: flex;
+    margin-top: 23px;
+    min-width: 420px;
+  }
+  
+  .textArea{
+     resize: none;
+      background-color: transparent;
+      margin-top: 16px;
+      border: 1px solid #5a4899;
+      outline: none;
+      color: white;
+      font-size: 0.93rem;
+      min-width: 40vw;
+      padding: 10px;
+  }
+  
+  @media (max-width: 839px) {
+    .sin {
+      display: block;
+    }
+    .editeDeleteSection {
+      margin-left: 0%;
+    }
+  }
+  @media (max-width: 612px) {
+    .singlechoiceQuestion {
+      display: block;
+    }
+    .editeDeleteSection {
+      margin-left: 0%;
+    }
+  }
+  @media (max-width: 605px) {
+    .response {
+      left: 0%;
+    }
+  }
+  
+  .edit {
+    background: transparent;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px 5px 10px 5px;
+    font-size: medium;
+    color: white;
+    border: 1px dashed greenyellow;
+  }
+  
+  .edit:hover{
+    border: 1px solid greenyellow;
+  }
+  
+  .deletee {
+    background: transparent;
+    font-size: smaller;
+   border: 1px solid red;
+   color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 7px 0px 0px 2p;
+  }
+  
+  .editDeleteSection {
+    margin-left: 30px;
+    min-width: fit-content;
+  }
+  
+  .cancel {
+    padding: 5px;
+    margin: 2px;
+    outline: 1px solid rgb(247, 62, 62);
+    border-radius: 2px;
+    /* color: rgb(247, 45, 45); */
+    background-color: transparent;
+    border: 1px solid red;
+    color: #808191;
+  }
+  
+  .cancel:hover {
+    background-color: rgb(255, 0, 0);
+    box-shadow: 1px 1px 5px black;
+    color: white;
+  }
+  
+  .add {
+    color: #808191;
+    background-color: transparent;
+    outline: 1px solid rgb(253, 70, 253);
+  }
+  
+  .add:hover {
+    background-color: rgba(200, 52, 214, 0.532);
+    box-shadow: 1px 1px 5px black;
+    color: white;
+  }
+  
+  .save {
+    color: #808191;
+    background-color: transparent;
+    outline: 1px solid rgb(65 24 227);
+  }
+  
+  .save:hover {
+    /* background-color: rgb(65 24 227); */
+    box-shadow: 1px 1px 5px black;
+    color: white;
+  }
+  
+  .delete {
+    color: #808191;
+    background-color: transparent;
+    outline: 1px solid chocolate;
+  }
+  
+  .delete:hover {
+    /* background-color: rgb(145, 114, 14); */
+    box-shadow: 1px 1px 5px black;
+    color: white;
+  }
+  
+  .preView {
+    background-color: transparent;
+    color: #808191;
+    outline: 1px solid rgb(250, 70, 160);
+  }
+  
+  .preView:hover {
+    /* background-color: rgb(247, 3, 222); */
+    box-shadow: 1px 1px 5px black;
+    color: white;
+  }
+  
+  .submit {
+    /* color: darkgreen; */
+    color: #808191;
+    background-color: transparent;
+    outline: 1px solid rgb(41, 249, 41);
+  }
+  
+  .submit:hover {
+    /* background-color: rgb(77, 138, 41); */
+    outline: 1px solid rgb(153, 250, 153);
+    /* box-shadow: 1px 1px 5px black; */
+    color: white;
+  }
+  
+  .Radio {
+    margin-left: 5px;
+  }
+  
+  /* .displayflex {
+      display: flex;
+  }
+  
+  .displayinlineflex {
+      display: inline-flex;
+  } */
+  
+  .Singles:hover {
+    border-radius: 20px;
+    /* background-color: rgba(53, 251, 168, 0.728); */
+    box-shadow: 1px 1px 8px black;
+  }
+  
+  .input {
+    padding: 8px;
+    border: none;
+    text-align: center;
+    outline: none;
+    width: 100%;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+    text-transform: capitalize;
+    background-color: transparent;
+    border: 1px solid #808191;
+  }
+  
+  .input:hover {
+    box-shadow: 1px 1px 10px skyblue;
+    border-radius: 8px;
+  }
+  
+  .Btn {
+    display: flex;
+    justify-content: center;
+    /* align-items: space-evenly; */
+    padding: 9px;
+  }
+  
+  .Btn button {
+    padding: 8.5px;
+    margin-left: 10px;
+    margin-top: 13px;
+    border: none;
+  }
+  
+  .finalOption {
+    padding: 5px;
+    margin-left: 3px;
+    color: #808191;
+    /* width: -webkit-fill-available */
+  }
+  
+  .response {
+    width: fit-content;
+    padding: 9px;
+    background-color: #5a4899;
+    color: #ffe1c2;
+    margin: auto;
+    position: relative;
+    width: "-webkit-fill-available";
+  }
+  
+  .submitQuestionPaper {
+    width: fit-content;
+    border: 1px solid #5a4899;
+    color: #808191;
+    padding: 6px;
+    font-size: 1rem;
+    position: relative;
+    margin-left: 46%;
+    margin-top: 23px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    cursor: pointer;
+  }
+  
+  .submitQuestionPaper:hover {
+    background-color: #5a4899;
+    color: white;
+    border-radius: 7px;
+  }
+  
+  .editeDeleteSection {
+    margin-left: 4%;
+    min-width: fit-content;
+  }
+  
+  @media (max-width: 635px) {
+    .widthSetter {
+      width: fit-content;
+    }
+  }
+  .btnHandler {
+    margin-left: 40px;
+    color: white;
+    border: 1px solid #5a4899;
+   
+    background-color: transparent;
+    padding: 9px;
+    font-size: initial;
+    border-radius: 12px;
+  }
+  
+  .btnHandler:hover{
+    background-color: #5a4899;
+  }
+
+  .fullpage{
+    background: #19191e;
+    min-height: 100vh;
+
+  }
+  
